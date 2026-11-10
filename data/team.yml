@@ -1,0 +1,39 @@
+# Team. "current" shows on the Team page and home page; "alumni" below.
+# photo: a file in static/img/, or a full https:// address; leave empty for initials.
+
+current:
+  - name: "Fleur Bouwer"
+    role: "Assistant Professor, PI"
+    photo: "fleur-portrait-320.jpg"
+    themes: [rhythm, learning, connection, health]
+    link: {label: "Leiden University profile", url: "https://www.universiteitleiden.nl/en/staffmembers/fleur-bouwer"}
+    bio: "Cognitive neuroscientist and former professional clarinettist, studying rhythm, music and the brain."
+  - name: "Iliana Samara"
+    role: "Assistant Professor"
+    photo: "https://ilianasamara.com/assets/img/iliana-headshot.jpg"
+    themes: [connection]
+    link: {label: "ilianasamara.com", url: "https://ilianasamara.com/"}
+    bio: "Studies how people infer interest and intention from each other, including mimicry and synchrony."
+  - name: "Anika van der Klis"
+    role: "Postdoc, from December 2026"
+    photo: ""
+    themes: [learning]
+    bio: "Developmental scientist with a PhD in language sciences; joins the music lessons study."
+
+alumni:
+  - name: "Atser Damsma"
+    role: "Postdoc"
+    project: "Who’s got rhythm? (ABC Project Grant)"
+    themes: [rhythm]
+  - name: "Marijn Hendricksen"
+    role: "Research assistant"
+    project: "Music for people with dementia"
+    themes: [health]
+  - name: "Dewi Boessen"
+    role: "Research assistant"
+    project: "Music for people with dementia"
+    themes: [health]
+
+# Selected master students: add entries like
+#  - {name: "...", year: 2025, thesis: "...", note: "nominated for ..."}
+students: []

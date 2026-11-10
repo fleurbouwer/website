@@ -1,0 +1,33 @@
+# Outreach projects and the book.
+
+projects:
+  - title: "ToontjeHoger"
+    year: "2022"
+    text: "A website of short games that test your musicality (pitch, rhythm, timing and memory for music) and explain the science behind each one. Built with the Music Cognition Group at the University of Amsterdam, partly funded by the KNAW Gewaardeerd! programme."
+    text_nl: "Een website met korte spelletjes die je muzikaliteit testen, zoals toonhoogte, ritme, timing en muzikaal geheugen, en die na elk spel de wetenschap erachter uitleggen. Gemaakt met de muziekcognitiegroep van de Universiteit van Amsterdam, mede gefinancierd door het KNAW-programma Gewaardeerd!"
+    link: {label: "Play ToontjeHoger", url: "https://toontjehoger.amsterdammusiclab.nl/toontjehoger"}
+  - title: "ToontjeHoger Kids"
+    year: "2024"
+    text: "The children's version: games for ages 8 and up that test musicality and show how your brain processes music."
+    text_nl: "De kinderversie: spelletjes voor kinderen vanaf 8 jaar die muzikaliteit testen en laten zien hoe je brein muziek verwerkt."
+    link: {label: "Play ToontjeHoger Kids", url: "http://app.amsterdammusiclab.nl/collection/thkids"}
+  - title: "Snaartjes"
+    year: "2024"
+    text: "An interactive festival about music and science for children aged 8 to 12, held at TivoliVredenburg in Utrecht on 15 June 2024. A collaboration between researchers and musicians, with Lara Wierenga, Henkjan Honing and Merel Vercammen, funded by an NWO science communication grant (Dutch Research Agenda)."
+    text_nl: "Een interactief festival over muziek en wetenschap voor kinderen van 8 tot 12 jaar, op 15 juni 2024 in TivoliVredenburg in Utrecht. Een samenwerking tussen onderzoekers en musici, met Lara Wierenga, Henkjan Honing en Merel Vercammen, gefinancierd met een NWO-beurs voor wetenschapscommunicatie (Nationale Wetenschapsagenda)."
+    link: {label: "About the grant", url: "https://www.universiteitleiden.nl/en/news/2023/11/four-projects-awarded-science-communication-grants"}
+
+talks: "I regularly give public lectures about music and the brain, from NEMO Science Museum and Paradiso to the Holland Festival. Between 2012 and 2015 I gave around 30 lecture recitals, combining clarinet performance with short interactive talks about music and the brain. To invite me for a talk, send me an email."
+talks_nl: "Ik geef regelmatig lezingen over muziek en het brein, van NEMO en Paradiso tot het Holland Festival. Tussen 2012 en 2015 gaf ik zo'n 30 lezingvoorstellingen waarin ik klarinet speelde en vertelde over muziek en het brein. Wilt u mij uitnodigen voor een lezing? Stuur me een e-mail."
+
+teaching: "I teach bachelor and master courses in the psychology programmes at Leiden University, including lectures on music and cognition and on cognitive enhancement, and I supervise master theses."
+
+book:
+  title: "[BOOK TITLE]"
+  subtitle: "[Subtitle]"
+  publisher: "[PUBLISHER]"
+  publisher_url: ""
+  date: "[Publication date]"
+  cover: ""
+  text: "A popular science book about music psychology and the brain: where our musicality comes from, what happens in the brain when we listen and play, who music is for, and how music helps us think, feel, move and bond."
+  text_nl: "Een populairwetenschappelijk boek over muziekpsychologie en het brein: waar onze muzikaliteit vandaan komt, wat er in het brein gebeurt als we luisteren en spelen, voor wie muziek is, en hoe muziek ons helpt denken, voelen, bewegen en verbinden."

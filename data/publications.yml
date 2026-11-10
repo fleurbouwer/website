@@ -1,0 +1,196 @@
+# Publications, newest first within each year.
+# Fields: year, authors, title, venue, details (volume/pages), doi, links (label + url),
+# type (article | chapter | review | thesis), themes (ids from themes.yml).
+# Fleur's name is set in bold automatically wherever "Bouwer, F" appears.
+
+- year: 2026
+  authors: "Bouwer, F. L., Damsma, A., Kaplan, T. M., Sarvestani, M. G., & Pearce, M. T."
+  title: "Abstract representations underlie rhythm perception and production: Evidence from a probabilistic model of temporal structure"
+  venue: "Cognition"
+  details: "268, 106345"
+  doi: "10.1016/j.cognition.2025.106345"
+  links:
+    - {label: "Data and code", url: "https://osf.io/kzg2e/overview?view_only=34af7d2af4854bffbaa247d8513bb14b"}
+  type: article
+  themes: [rhythm]
+
+- year: 2025
+  authors: "Grassi, M., Talamini, F., Altoè, G., Brattico, E., Caclin, A., Carretti, B., Drai-Zerbib, V., Ferreri, L., Gambarota, F., Grahn, J., Guiotto Nai Fovino, L., Roccato, M., Rodriguez-Fornells, A., Swaminathan, S., Tillmann, B., Vuust, P., Wilbiks, J., Zentner, M., Aguilar, K., …, Bouwer, F. L., … Zappa, A."
+  title: "Do musicians have better short-term memory than nonmusicians? A multilab study"
+  venue: "Advances in Methods and Practices in Psychological Science"
+  details: "8(4), 25152459251379432"
+  doi: "10.1177/25152459251379432"
+  type: article
+  themes: [learning]
+
+- year: 2025
+  authors: "Damsma, A., De Roo, M., Doelling, K., Bazin, P.-L., & Bouwer, F. L."
+  title: "Tempo-dependent selective enhancement of neural responses at the beat frequency can be mimicked by both an oscillator and an evoked model"
+  venue: "Cerebral Cortex"
+  details: "35(9), bhaf258"
+  doi: "10.1093/cercor/bhaf258"
+  links:
+    - {label: "Data and code", url: "https://osf.io/ghp94/overview"}
+  type: article
+  themes: [rhythm]
+
+- year: 2024
+  authors: "Bouwer, F. L., Háden, G. P., & Honing, H."
+  title: "Probing beat perception with event-related potentials (ERPs) in human adults, newborns, and nonhuman primates"
+  venue: "Neurobiology of Interval Timing (H. Merchant & V. de Lafuente, Eds.)"
+  details: "pp. 227–256. Springer"
+  doi: "10.1007/978-3-031-60183-5_13"
+  links:
+    - {label: "Open-access preprint", url: "https://doi.org/10.31234/osf.io/azk9q"}
+  type: chapter
+  themes: [rhythm]
+
+- year: 2024
+  authors: "Háden, G. P., Bouwer, F. L., Honing, H., & Winkler, I."
+  title: "Beat processing in newborn infants cannot be explained by statistical learning based on transition probabilities"
+  venue: "Cognition"
+  details: "243, 105670"
+  doi: "10.1016/j.cognition.2023.105670"
+  type: article
+  themes: [rhythm]
+
+- year: 2023
+  authors: "Fiveash, A., Ferreri, L., Bouwer, F. L., Kösem, A., Moghimi, S., Ravignani, A., Keller, P. E., & Tillmann, B."
+  title: "Can rhythm-mediated reward boost learning, memory, and social connection? Perspectives for future research"
+  venue: "Neuroscience and Biobehavioral Reviews"
+  details: "149, 105153"
+  doi: "10.1016/j.neubiorev.2023.105153"
+  type: review
+  themes: [connection, learning]
+
+- year: 2023
+  authors: "Bouwer, F. L., Fahrenfort, J. J., Millard, S. K., Kloosterman, N. A., & Slagter, H. A."
+  title: "A silent disco: Differential effects of beat-based and pattern-based temporal expectations on persistent entrainment of low-frequency neural oscillations"
+  venue: "Journal of Cognitive Neuroscience"
+  details: "35, 990–1020"
+  doi: "10.1162/jocn_a_01985"
+  links:
+    - {label: "Open-access preprint", url: "https://www.biorxiv.org/content/10.1101/2020.01.08.899278v8.abstract"}
+    - {label: "Data and code", url: "https://osf.io/uwny8/"}
+  type: article
+  themes: [rhythm]
+
+- year: 2022
+  authors: "Bouwer, F. L."
+  title: "Neural entrainment to auditory rhythms: Automatic or top-down driven?"
+  venue: "The Journal of Neuroscience"
+  details: "42(11), 2146–2148"
+  doi: "10.1523/JNEUROSCI.2305-21.2022"
+  links:
+    - {label: "Open-access preprint", url: "https://psyarxiv.com/p9uza/"}
+  type: article
+  themes: [rhythm]
+
+- year: 2021
+  authors: "Slagter, H. A., & Bouwer, F. L."
+  title: "Qualitative versus quantitative individual differences in cognitive neuroscience"
+  venue: "Journal of Cognition"
+  details: "4(1), 49"
+  doi: "10.5334/joc.170"
+  type: article
+  themes: [rhythm]
+
+- year: 2021
+  authors: "Bouwer, F. L., Nityananda, V., Rouse, A. A., & ten Cate, C."
+  title: "Rhythmic abilities in humans and non-human animals: A review and recommendations from a methodological perspective"
+  venue: "Philosophical Transactions of the Royal Society B"
+  details: "376, 20200335"
+  doi: "10.1098/rstb.2020.0335"
+  type: review
+  themes: [rhythm]
+
+- year: 2020
+  authors: "Bouwer, F. L., Honing, H., & Slagter, H. A."
+  title: "Beat-based and memory-based temporal expectations in rhythm: Similar perceptual effects, different underlying mechanisms"
+  venue: "Journal of Cognitive Neuroscience"
+  details: "32, 1221–1241"
+  doi: "10.1162/jocn_a_01529"
+  links:
+    - {label: "Data and code", url: "https://osf.io/vfhqr/overview"}
+  type: article
+  themes: [rhythm]
+
+- year: 2019
+  authors: "Honing, H., & Bouwer, F. L."
+  title: "Rhythm"
+  venue: "Foundations in Music Psychology: Theory and Research (P. J. Rentfrow & D. Levitin, Eds.)"
+  details: "pp. 33–69. MIT Press"
+  type: chapter
+  themes: [rhythm]
+
+- year: 2018
+  authors: "Honing, H., Bouwer, F. L., Prado, L., & Merchant, H."
+  title: "Rhesus monkeys (Macaca mulatta) sense isochrony in rhythm, but not the beat: Additional support for the Gradual Audiomotor Evolution Hypothesis"
+  venue: "Frontiers in Neuroscience"
+  details: "12, 475"
+  doi: "10.3389/fnins.2018.00475"
+  type: article
+  themes: [rhythm]
+
+- year: 2018
+  authors: "Bouwer, F. L., Burgoyne, J. A., Odijk, D., Honing, H., & Grahn, J. A."
+  title: "What makes a rhythm complex? The influence of musical training and accent type on beat perception"
+  venue: "PLoS ONE"
+  details: "13(1), e0190322"
+  doi: "10.1371/journal.pone.0190322"
+  type: article
+  themes: [rhythm, learning]
+
+- year: 2018
+  authors: "Roncaglia-Denissen, M. P., Bouwer, F. L., & Honing, H."
+  title: "Decision making strategy and the simultaneous processing of syntactic dependencies in language and music"
+  venue: "Frontiers in Psychology: Cognitive Science"
+  details: "9"
+  doi: "10.3389/fpsyg.2018.00038"
+  type: article
+  themes: [learning]
+
+- year: 2016
+  authors: "Bouwer, F. L., Werner, C. M., Knetemann, M., & Honing, H."
+  title: "Disentangling beat perception from sequential learning and examining the influence of attention and musical abilities on ERP responses to rhythm"
+  venue: "Neuropsychologia"
+  details: "85, 80–90"
+  doi: "10.1016/j.neuropsychologia.2016.02.018"
+  type: article
+  themes: [rhythm]
+
+- year: 2016
+  authors: "Bouwer, F. L."
+  title: "What do we need to hear a beat? The influence of attention, musical abilities, and accents on the perception of metrical rhythm"
+  venue: "Doctoral dissertation, University of Amsterdam"
+  links:
+    - {label: "Full dissertation (PDF)", url: "https://fleurbouwer.nl/wp-content/uploads/2016/05/FleurBouwer_Dissertation_Complete.pdf"}
+  type: thesis
+  themes: [rhythm]
+
+- year: 2015
+  authors: "Bouwer, F. L., & Honing, H."
+  title: "Temporal attending and prediction influence the perception of metrical rhythm: Evidence from reaction times and ERPs"
+  venue: "Frontiers in Psychology"
+  details: "6, 1094"
+  doi: "10.3389/fpsyg.2015.01094"
+  type: article
+  themes: [rhythm]
+
+- year: 2014
+  authors: "Bouwer, F. L., Van Zuijen, T. L., & Honing, H."
+  title: "Beat processing is pre-attentive for metrically simple rhythms with clear accents: An ERP study"
+  venue: "PLoS ONE"
+  details: "9(5), e97467"
+  doi: "10.1371/journal.pone.0097467"
+  type: article
+  themes: [rhythm]
+
+- year: 2014
+  authors: "Honing, H., Bouwer, F. L., & Háden, G. P."
+  title: "Perceiving temporal regularity in music: The role of auditory event-related potentials (ERPs) in probing beat perception"
+  venue: "Neurobiology of Interval Timing (H. Merchant & V. de Lafuente, Eds.)"
+  details: "Vol. 829, pp. 305–323. Springer"
+  doi: "10.1007/978-1-4939-1782-2_16"
+  type: chapter
+  themes: [rhythm]

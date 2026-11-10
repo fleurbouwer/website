@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block hero %}<section class="wrap page-hero"><h1>{{ outreach.book.title }}</h1><p class="lead">{{ outreach.book.subtitle }}</p></section>{% endblock %}
+{% block main %}
+<section class="section"><div class="wrap book">
+<div class="cover">{% if outreach.book.cover %}<img src="{{ u('static/img/' ~ outreach.book.cover) }}" alt="Cover of {{ outreach.book.title }}">{% else %}[Book cover]{% endif %}</div>
+<div class="prose" style="flex:1 1 360px">
+<p style="font-size:19px">{{ outreach.book.text }}</p>
+<p class="muted">{{ outreach.book.publisher }} · {{ outreach.book.date }}</p>
+{% if outreach.book.publisher_url %}<p><a class="btn btn-amber" href="{{ outreach.book.publisher_url }}">Order from the publisher</a></p>{% else %}<p><span class="btn btn-line" aria-disabled="true">[Link to publisher]</span></p>{% endif %}
+</div>
+</div></section>
+{% endblock %}

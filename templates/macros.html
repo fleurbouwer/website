@@ -1,0 +1,40 @@
+{% macro beats(h=48) -%}
+<svg class="beats" viewBox="0 0 1096 {{ h }}" preserveAspectRatio="none" aria-hidden="true"><g fill="#F5B841">{% for i in range(17) %}{% set k = i % 4 %}{% if k == 0 %}<rect x="{{ i * 68 if i < 16 else 1086 }}" y="0" width="10" height="{{ h }}" rx="5"/>{% elif k == 2 %}<rect x="{{ i * 68 }}" y="{{ (h * 0.3)|round|int }}" width="10" height="{{ (h * 0.7)|round|int }}" rx="5"/>{% else %}<rect x="{{ i * 68 }}" y="{{ (h * 0.6)|round|int }}" width="10" height="{{ (h * 0.4)|round|int }}" rx="5" fill="#465068"/>{% endif %}{% endfor %}</g></svg>
+{%- endmacro %}
+
+{% macro art(kind) -%}
+<svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<rect width="400" height="170" fill="#141A2A"/>
+{% if kind == 'beat' %}
+{% for i in range(12) %}{% set k = i % 4 %}<rect x="{{ 22 + i * 32 }}" y="{{ 30 if k == 0 else (65 if k == 2 else 100) }}" width="12" height="{{ 110 if k == 0 else (75 if k == 2 else 40) }}" rx="6" fill="{{ '#F5B841' if k != 1 and k != 3 else '#465068' }}"/>{% endfor %}
+{% elif kind == 'steps' %}
+{% for i in range(6) %}<rect x="{{ 40 + i * 56 }}" y="{{ 130 - i * 18 }}" width="40" height="{{ 20 + i * 18 }}" rx="8" fill="{{ '#F5B841' if i == 5 else '#465068' }}"/>{% endfor %}
+<circle cx="348" cy="22" r="10" fill="#F5B841"/>
+{% elif kind == 'pairs' %}
+{% for i in range(7) %}<circle cx="{{ 40 + i * 54 }}" cy="62" r="{{ 16 if i % 2 == 0 else 9 }}" fill="#F5B841"/><circle cx="{{ 40 + i * 54 }}" cy="112" r="{{ 16 if i % 2 == 0 else 9 }}" fill="#C3C8D3"/>{% endfor %}
+{% elif kind == 'wave' %}
+<path d="M0 95 C 40 40, 80 40, 120 95 S 200 150, 240 95 S 320 40, 360 95 S 400 120, 420 110" fill="none" stroke="#F5B841" stroke-width="10" stroke-linecap="round"/>
+<path d="M0 115 C 40 70, 80 70, 120 115 S 200 160, 240 115 S 320 70, 360 115" fill="none" stroke="#465068" stroke-width="6" stroke-linecap="round"/>
+{% endif %}
+</svg>
+{%- endmacro %}
+
+{% macro avatar(p, u, cls='avatar') -%}
+{% if p.photo %}<img class="{{ cls }}" src="{{ p.photo if p.photo.startswith('http') else u('static/img/' ~ p.photo) }}" alt="{{ p.name }}" width="120" height="120" loading="lazy">{% else %}<span class="{{ cls }}" aria-hidden="true">{{ p.name.split()[0][0] }}{{ p.name.split()[-1][0] }}</span>{% endif %}
+{%- endmacro %}
+
+{% macro news_item(n, u, themes_by_id, show_text=True) -%}
+<article class="news-item" data-kind="{{ n.kind }}">
+<span class="label">{{ (kinds_nl if lang == 'nl' else kinds)[n.kind] }} · {{ n.date|month(lang) }}{% if n.lang == 'nl' and lang != 'nl' %}<span class="tag" lang="en" title="In Dutch">NL</span>{% endif %}</span>
+<h3>{% if n.link %}<a href="{{ n.link }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
+{% if show_text and n.text %}<p{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.text }}</p>{% endif %}
+{% if show_text and n.theme %}<p><a href="{{ u('research/' ~ n.theme ~ '/') }}">{{ themes_by_id[n.theme].title }}</a></p>{% endif %}
+</article>
+{%- endmacro %}
+
+{% macro pub(p, u, themes_by_id) -%}
+<li class="pub" data-themes="{{ p.themes|join(' ') }}">
+<p class="ref">{{ p.authors|boldme }} ({{ p.year }}). {{ p.title }}. <em>{{ p.venue }}</em>{% if p.details %}, {{ p.details }}{% endif %}.</p>
+<p class="pub-links">{% if p.doi %}<a href="https://doi.org/{{ p.doi }}">doi.org/{{ p.doi }}</a>{% endif %}{% for l in p.links or [] %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
+</li>
+{%- endmacro %}

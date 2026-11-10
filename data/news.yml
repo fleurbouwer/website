@@ -1,0 +1,99 @@
+# News and media, newest first.
+# kind: paper | grant | media | outreach | lab
+# lang: nl for Dutch-language items (shown with an NL label and on the Dutch page)
+# link: where the item points (article, podcast, paper). Optional.
+
+- date: 2025-12-17
+  kind: grant
+  title: "Open Science NL funds our replication study on music lessons and IQ"
+  text: "Do music lessons really make children smarter? With Marieke Bos, we will repeat a famous 2004 study with 312 children, and look beyond IQ at attention, wellbeing and social behaviour."
+  link: "https://www.openscience.nl/en/news/27-studies-re-examined"
+  theme: learning
+
+- date: 2025-11-26
+  kind: paper
+  title: "New paper in Cognition: modelling how we process rhythmic patterns"
+  text: "Using a probabilistic computer model of temporal structure, we show that abstract representations underlie how people perceive and produce rhythms."
+  link: "https://doi.org/10.1016/j.cognition.2025.106345"
+  theme: rhythm
+
+- date: 2025-11-06
+  kind: paper
+  title: "Do musicians have better short-term memory than nonmusicians? A multilab study"
+  text: "A large international team tested the claim with the same tasks in many labs."
+  link: "https://doi.org/10.1177/25152459251379432"
+  theme: learning
+
+- date: 2025-09-26
+  kind: paper
+  title: "New paper in Cerebral Cortex: brain responses to rhythm at different tempi"
+  text: "With Atser Damsma and colleagues we show that tempo-dependent EEG responses at the beat can be mimicked by both an oscillator and an evoked model."
+  link: "https://doi.org/10.1093/cercor/bhaf258"
+  theme: rhythm
+
+- date: 2025-09-01
+  kind: media
+  lang: nl
+  title: "NEMO Kennislink: uit de maat klappen"
+  text: "Fleur legt uit wat er naast ritmegevoel nog meer meespeelt als je meeklapt met muziek."
+  link: "https://www.universiteitleiden.nl/in-de-media/2025/09/fleur-bouwer-in-de-media"
+
+- date: 2024-11-26
+  kind: media
+  lang: nl
+  title: "Waarom tellen dansers af met 5, 6, 7, 8?"
+  text: "Bij BNN/VARA Alledaagse Vragen legt Fleur uit wat ritmegevoel te maken heeft met dansen."
+
+- date: 2024-11-26
+  kind: media
+  lang: nl
+  title: "NEMO Blijf nieuwsgierig: waarom is mijn maatgevoel niet goed?"
+  text: "Een van de vragen op de website van NEMO, beantwoord door Fleur."
+
+- date: 2024-11-01
+  kind: grant
+  title: "NWO grant for Tuning in together"
+  text: "An NWO Open Competition XS grant lets us study whether listening to music together makes people cooperate."
+  link: "https://www.universiteitleiden.nl/en/news/2024/11/grants-awarded-for-five-innovative-psychology-research-projects"
+  theme: connection
+
+- date: 2024-10-04
+  kind: outreach
+  lang: nl
+  title: "3 October University"
+  text: "Op de feestdag 3 oktober in Leiden stonden we met een demo van de nieuwe ToontjeHogerKids."
+
+- date: 2024-07-26
+  kind: media
+  lang: nl
+  title: "Waarom lijken veel liedjes zo op elkaar?"
+  text: "De Volkskrant zocht het uit, met hulp van Fleur."
+
+- date: 2024-06-15
+  kind: outreach
+  lang: nl
+  title: "Snaartjes festival 2024"
+  text: "Dankzij een wetenschapscommunicatiebeurs van NWO organiseerden we, samen met Merel Vercammen, Snaartjes: een festival over muziek en wetenschap voor kinderen."
+  link: "https://www.universiteitleiden.nl/en/news/2023/11/four-projects-awarded-science-communication-grants"
+
+- date: 2024-04-26
+  kind: media
+  lang: nl
+  title: "Waarom zijn Meau en Flemming zo populair bij kinderen?"
+  text: "Fleur werkte mee aan het antwoord in een artikel in de Volkskrant."
+
+- date: 2022-11-30
+  kind: outreach
+  title: "Launch of ToontjeHoger"
+  text: "Together with the Music Cognition Group, we built a website of games that test your musicality and explain the science behind it, through the KNAW Gewaardeerd! programme."
+  link: "https://toontjehoger.amsterdammusiclab.nl/toontjehoger"
+
+- date: 2022-10-30
+  kind: media
+  title: "Item on Amsterdam Dance Event in Atlas TV"
+  text: "On the occasion of the Amsterdam Dance Event, Fleur explained a few things about dancing and your sense of rhythm."
+
+- date: 2022-02-28
+  kind: outreach
+  title: "NEMO children’s lecture"
+  text: "A lecture for a room full of curious children at science museum NEMO in Amsterdam."

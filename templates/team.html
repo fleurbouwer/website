@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% import "macros.html" as m with context %}
+{% block hero %}<section class="wrap page-hero"><h1>Who we are</h1><p class="lead">We are part of the Cognitive Psychology Unit at Leiden University.</p></section>{% endblock %}
+{% block main %}
+<section class="section"><div class="wrap two-col">
+<div class="side"><img src="{{ u('static/img/fleur-portrait-800.jpg') }}" alt="Portrait of Fleur Bouwer" width="800" height="800" style="border-radius:24px"></div>
+<div class="main prose"><h2>Fleur Bouwer</h2><p class="label">{{ site.tagline }}</p>{% for para in site.bio.strip().split('\n\n') %}<p>{{ para }}</p>{% endfor %}
+<p><a href="https://www.universiteitleiden.nl/en/staffmembers/fleur-bouwer">Leiden University profile</a></p></div>
+</div></section>
+<section class="section white"><div class="wrap">
+<div class="section-head"><h2>Team</h2></div>
+<div class="team-grid">
+{% for p in team.current[1:] %}<article class="member">{{ m.avatar(p, u) }}<div><div class="person"><div><div class="name">{{ p.name }}</div><div class="role">{{ p.role }}</div></div></div></div><p>{{ p.bio }}</p>
+<div class="chips">{% for tid in p.themes %}<a href="{{ u('research/' ~ tid ~ '/') }}">{{ themes_by_id[tid].title }}</a>{% endfor %}</div>
+{% if p.link %}<p><a href="{{ p.link.url }}">{{ p.link.label }}</a></p>{% endif %}</article>{% endfor %}
+</div></div></section>
+<section class="section"><div class="wrap">
+<div class="section-head"><h2>Alumni</h2></div>
+<div class="team-grid">
+{% for p in team.alumni %}<article class="member"><div class="name" style="font-family:var(--head);font-weight:600;font-size:18px">{{ p.name }}</div><p class="muted">{{ p.role }}, {{ p.project }}</p><div class="chips">{% for tid in p.themes %}<a href="{{ u('research/' ~ tid ~ '/') }}">{{ themes_by_id[tid].title }}</a>{% endfor %}</div></article>{% endfor %}
+</div>
+{% if team.students %}<h3 style="margin:40px 0 16px">Selected master students</h3><ul>{% for s in team.students %}<li>{{ s.name }} ({{ s.year }}): {{ s.thesis }}{% if s.note %}, {{ s.note }}{% endif %}</li>{% endfor %}</ul>{% endif %}
+</div></section>
+{% endblock %}

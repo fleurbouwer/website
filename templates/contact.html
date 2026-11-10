@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block hero %}<section class="wrap page-hero"><h1>Contact</h1></section>{% endblock %}
+{% block main %}
+<section class="section"><div class="wrap two-col">
+<div class="main prose">
+<p style="font-size:19px">Email is the best way to reach me: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+<p>Students looking for a thesis project, journalists, and organisers of public events are all welcome to get in touch.</p>
+<h3 style="margin-top:16px">Visiting address</h3>
+<p>Cognitive Psychology Unit, Institute of Psychology<br>Faculty of Social and Behavioural Sciences, Agora Building<br>Wassenaarseweg 52, 2333 AK Leiden, The Netherlands</p>
+</div>
+<div class="side prose"><h3>Elsewhere</h3><ul style="margin:0;padding-left:20px">{% for l in site.links %}<li><a href="{{ l.url }}">{{ l.label }}</a></li>{% endfor %}</ul></div>
+</div></section>
+{% endblock %}

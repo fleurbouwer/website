@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ lang or 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+<meta name="description" content="{{ description or site.tagline }}">
+<link rel="canonical" href="{{ site.url }}/{{ path }}">
+<meta property="og:title" content="{{ title or site.name }}">
+<meta property="og:description" content="{{ description or site.tagline }}">
+<meta property="og:image" content="{{ site.url }}/static/img/fleur-on-stage-1600.jpg">
+<link rel="icon" href="{{ u('static/img/favicon.svg') }}" type="image/svg+xml">
+<link rel="preload" href="{{ u('static/fonts/space-grotesk-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ u('static/css/site.css') }}">
+</head>
+<body>
+<a class="skip" href="#main">{{ 'Naar de inhoud' if lang == 'nl' else 'Skip to content' }}</a>
+<div class="dark">
+<header class="wrap site-head">
+<a class="brand" href="{{ u('') }}">{{ site.name }}<span>.</span></a>
+<nav class="nav" aria-label="{{ 'Hoofdmenu' if lang == 'nl' else 'Main' }}">
+{% for item in nav %}<a href="{{ u(item.path) }}"{% if section == item.path %} aria-current="page"{% endif %}>{{ item.label }}</a>
+{% endfor %}{% if lang == 'nl' %}<a class="lang" href="{{ u('') }}" lang="en" hreflang="en">In English</a>{% else %}<a class="lang" href="{{ u('nl/') }}" lang="nl" hreflang="nl">In het Nederlands</a>{% endif %}
+</nav>
+</header>
+{% block hero %}{% endblock %}
+</div>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="dark">
+<div class="wrap site-foot">
+<div class="foot-row">
+<span>{{ site.affiliation }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
+<span class="foot-links">{% for l in site.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</span>
+</div>
+<p class="ai-note"{% if lang == 'nl' %} lang="nl"{% endif %}>{{ site.ai_note_nl if lang == 'nl' else site.ai_note }}</p>
+</div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>
