@@ -10,4 +10,5 @@ Rules:
 - Keep the AI note in the footer (`site.yml: ai_note`).
 - Write for a general audience on project pages; a project text is overarching, funding is a plain list (name + years); keep Dutch items marked `lang: nl`.
 - Run `python3 build.py --preview` and check the result before proposing a merge.
+- Media appearances and outreach events go in `data/news.yml` with `kind: media` or `outreach` plus `medium` (video, audio, print, event) and `outlet`; add `youtube` (video id) so the clip plays on its tile. They show on the Outreach page, not on News.
 - Pinned news (`pinned: true` in `data/news.yml`) stays on top of the home and news pages; unpin when it is no longer current.
