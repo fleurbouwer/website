@@ -42,7 +42,7 @@
 
 {% macro pinned_item(n, u) -%}
 <article class="pinned" data-kind="{{ n.kind }}">
-{% if n.kind == 'book' %}<div class="mini-cover" aria-hidden="true"><span>What Is Music For?</span><small>Fleur Bouwer</small></div>{% endif %}
+{% if n.kind == 'book' %}<img class="mini-cover-img" src="{{ u('static/img/' ~ outreach.book.cover) }}" alt="Cover of What Is Music For? by Fleur Bouwer" width="120" height="191">{% endif %}
 <div>
 <span class="label">{{ 'Uitgelicht' if lang == 'nl' else 'Coming soon' }} · {{ (kinds_nl if lang == 'nl' else kinds)[n.kind] }}</span>
 <h3>{{ n.title }}</h3>

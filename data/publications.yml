@@ -131,7 +131,7 @@
   links:
     - {label: "Open-access preprint", url: "https://doi.org/10.31234/osf.io/pu9yh"}
   type: review
-  projects: [rhythm, connection]
+  projects: [rhythm]
 
 - year: 2020
   authors: "Bouwer, F. L., Honing, H., & Slagter, H. A."

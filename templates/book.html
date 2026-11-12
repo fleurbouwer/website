@@ -3,7 +3,7 @@
 {% block hero %}<section class="wrap page-hero"><span class="label" style="color:var(--amber)">New book · {{ b.date }}</span><h1>{{ b.title }}</h1><p class="lead">{{ b.series }}, {{ b.publisher }}</p></section>{% endblock %}
 {% block main %}
 <section class="section"><div class="wrap book">
-{% if b.cover %}<img class="cover" src="{{ u('static/img/' ~ b.cover) }}" alt="Cover of {{ b.title }}">{% else %}<div class="cover-big" role="img" aria-label="Placeholder for the book cover"><span>{{ b.title }}</span><small>Fleur Bouwer<br>Cover image coming soon</small></div>{% endif %}
+{% if b.cover %}<img class="cover-img" src="{{ u('static/img/' ~ b.cover) }}" alt="Cover of {{ b.title }} by Fleur Bouwer" width="346" height="550">{% else %}<div class="cover-big" role="img" aria-label="Placeholder for the book cover"><span>{{ b.title }}</span><small>Fleur Bouwer<br>Cover image coming soon</small></div>{% endif %}
 <div class="prose" style="flex:1 1 360px">
 {% for para in b.paragraphs %}<p{% if loop.first %} style="font-size:21px"{% endif %}>{{ para }}</p>{% endfor %}
 <p class="muted" style="font-size:16px">{{ b.publisher }} · {{ b.date }} · {{ b.details }}</p>

@@ -17,7 +17,7 @@
     Today we combine computational models of rhythm with behaviour, EEG and fMRI, in healthy listeners and in people with Parkinson's disease, and we have tested rhythmic abilities online in large groups of people together with the Amsterdam Music Lab.
   funding:
     - {name: "Amsterdam Brain and Cognition (ABC) Talent Grant", years: "2017–2019"}
-    - {name: "NWO Veni", years: "from 2021"}
+    - {name: "NWO Veni", years: "2021–2025"}
     - {name: "ABC Project Grant, with Henkjan Honing and Pierre-Louis Bazin", years: "2021–2023"}
   collaborators: "Henkjan Honing, Heleen Slagter, Pierre-Louis Bazin, Jessica Grahn (Western University), Edward Large (University of Connecticut), Marcus Pearce (Queen Mary University of London)"
 
@@ -34,7 +34,7 @@
 
     In Leiden, together with Marieke Bos, we are repeating a famous 2004 study which found that children's IQ rose more after a year of music lessons. Over 300 six-year-olds at after-school care get a year of weekly recorder or singing lessons, drama lessons, or join a waitlist. Besides IQ we measure attention and self-control, musicality, wellbeing and social behaviour. The study plan is peer-reviewed and published before any data come in.
   funding:
-    - {name: "Open Science NL (NWO), Replication Studies", years: "from 2025"}
+    - {name: "Open Science NL (NWO), Replication Studies", years: "from 2026"}
   collaborators: "Marieke Bos (Leiden University), ManyMusicians network; partners Opstoom, Leerorkest Nederland and Hart Haarlem"
 
 - id: connection
@@ -48,7 +48,7 @@
 
     We study whether simply listening to music together promotes cooperation, and whether that works through the body: listeners' heart rate and skin conductance starting to move in step. Pairs of participants listen to music either perfectly in sync or slightly apart, while we record their physiology and they play a game in which they can choose to cooperate. We also look at how rhythm, synchrony and reward are linked, and how rhythmic abilities compare across humans and other animals.
   funding:
-    - {name: "NWO Open Competition XS", years: "2025"}
+    - {name: "NWO Open Competition XS", years: "2025–2026"}
   collaborators: ""
 
 - id: health
