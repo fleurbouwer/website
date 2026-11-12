@@ -1,128 +1,670 @@
 # News and media, newest first.
-# kind: paper | grant | media | outreach | lab
-# lang: nl for Dutch-language items (shown with an NL label and on the Dutch page)
-# link: where the item points (article, podcast, paper). Optional.
+# kind: book | paper | grant | media | outreach | talk | lab | music
+# date: YYYY-MM-DD, or YYYY-MM / YYYY when the exact day is unknown (shown as month or year).
+# text: one or two sentences shown in lists. body: optional longer story; gives the item its own page at news/<slug>/.
+# link + link_label: main link (paper, article, video). more_links: extra links.
+# image / audio: files in static/news/. lang: nl for Dutch items. project: id from projects.yml.
 # pinned: true keeps an item at the top of the home page and the news page.
+# old_slug: address of the post on the old WordPress site (forwards to the news page).
 
-- date: 2026-11-12
+- date: '2026-11-12'
   kind: book
   pinned: true
-  title: "My book What Is Music For? comes out in March 2027"
-  text: "Why do we love music so much, when it is just vibrating air? In this short book for everyone, part of the What Is It For? series by Bristol University Press, I explain what science tells us about music and the brain, and debunk a few myths along the way. It can be pre-ordered now."
-  link: "https://bristoluniversitypress.co.uk/trade/what-is-music-for"
-
-- date: "2026"
+  title: My book What Is Music For? comes out in March 2027
+  text: Why do we love music so much, when it is just vibrating air? In this short book for everyone, part of the What Is It For? series by Bristol University Press, I explain what science tells us about music and the brain, and debunk a few myths along the way. It can be pre-ordered now.
+  link: https://bristoluniversitypress.co.uk/trade/what-is-music-for
+- date: '2026'
   kind: paper
-  title: "New paper in Journal of Alzheimer’s Disease: singing versus conversation in dementia"
-  text: "Led by Dewi Boessen and Marijn Hendricksen, our pilot study in a nursing home compared singing sessions with conversation sessions, to separate the effect of music from that of company and attention."
-  link: "https://doi.org/10.1177/13872877261485601"
+  title: 'New paper in Journal of Alzheimer’s Disease: singing versus conversation in dementia'
+  text: Led by Dewi Boessen and Marijn Hendricksen, our pilot study in a nursing home compared singing sessions with conversation sessions, to separate the effect of music from that of company and attention.
+  link: https://doi.org/10.1177/13872877261485601
   project: health
-
-- date: "2026"
+- date: '2026'
   kind: paper
-  title: "Music Ensemble: an open dataset on musicians and nonmusicians"
-  text: "The ManyMusicians network shares its data on musicianship, cognition and personality from labs around the world, in Scientific Data."
-  link: "https://doi.org/10.1038/s41597-026-06654-0"
+  title: 'Music Ensemble: an open dataset on musicians and nonmusicians'
+  text: The ManyMusicians network shares its data on musicianship, cognition and personality from labs around the world, in Scientific Data.
+  link: https://doi.org/10.1038/s41597-026-06654-0
   project: learning
-
-- date: "2025-12"
-  kind: paper
-  title: "New paper in PLOS Computational Biology: modelling rhythmic expectations"
-  text: "Led by Atser Damsma, experts from seven universities who disagree about how to model rhythm wrote a joint perspective, with concrete recommendations for the field."
-  link: "https://doi.org/10.1371/journal.pcbi.1013798"
-  project: rhythm
-
-- date: 2025-12-17
+- date: '2025-12-17'
   kind: grant
-  title: "Open Science NL funds our replication study on music lessons and IQ"
-  text: "Do music lessons really make children smarter? With Marieke Bos, we will repeat a famous 2004 study with 312 children, and look beyond IQ at attention, wellbeing and social behaviour."
-  link: "https://www.openscience.nl/en/news/27-studies-re-examined"
+  title: Open Science NL funds our replication study on music lessons and IQ
+  text: Do music lessons really make children smarter? With Marieke Bos, we will repeat a famous 2004 study with 312 children, and look beyond IQ at attention, wellbeing and social behaviour.
+  link: https://www.openscience.nl/en/news/27-studies-re-examined
   project: learning
-
-- date: 2025-11-26
+- date: 2025-12
   kind: paper
-  title: "New paper in Cognition: modelling how we process rhythmic patterns"
-  text: "Using a probabilistic computer model of temporal structure, we show that abstract representations underlie how people perceive and produce rhythms."
-  link: "https://doi.org/10.1016/j.cognition.2025.106345"
+  title: 'New paper in PLOS Computational Biology: modelling rhythmic expectations'
+  text: Led by Atser Damsma, experts from seven universities who disagree about how to model rhythm wrote a joint perspective, with concrete recommendations for the field.
+  link: https://doi.org/10.1371/journal.pcbi.1013798
   project: rhythm
-
-- date: 2025-11-06
+- date: '2025-11-26'
   kind: paper
-  title: "Do musicians have better short-term memory than nonmusicians? A multilab study"
-  text: "A large international team tested the claim with the same tasks in many labs."
-  link: "https://doi.org/10.1177/25152459251379432"
+  title: 'New paper in Cognition: Modelling processing of rhythmic patterns'
+  project: rhythm
+  text: 'When you listen to rhythm, you can predict the timing of sounds by learning the pattern of longer and shorter sounds (like morse code). But how do we represent a rhythmic pattern in our minds? We used a probabilistic model of musical predictions to figure this out. Across three different tasks, we found that listeners primarily rely on abstract and imprecise representations: instead of "this interval was 400 ms and the next is 350 ms" we seem to represent rhythmic patterns more like "long, a bit longer, a bit shorter, shortish" - we rely on ratios and contour mostly!'
+  slug: new-paper-in-cognition-modelling-processing-of-rhythmic-patterns
+  body: 'When you listen to rhythm, you can predict the timing of sounds by learning the pattern of longer and shorter sounds (like morse code). But how do we represent a rhythmic pattern in our minds? We used a probabilistic model of musical predictions to figure this out. Across three different tasks, we found that listeners primarily rely on abstract and imprecise representations: instead of "this interval was 400 ms and the next is 350 ms" we seem to represent rhythmic patterns more like "long, a bit longer, a bit shorter, shortish" - we rely on ratios and contour mostly!'
+  link: https://doi.org/10.1016/j.cognition.2025.106345
+  link_label: Read the paper
+  more_links:
+  - label: Data and code
+    url: https://osf.io/kzg2e/overview?view_only=34af7d2af4854bffbaa247d8513bb14b
+- date: '2025-11-06'
+  kind: paper
+  title: 'New paper: Do Musicians Have Better Short-Term Memory Than Nonmusicians? A Multilab Study'
   project: learning
-
-- date: 2025-09-26
+  text: 'Recently, our lab has contributed to a long-standing debate: does musical training make you smarter? There are many ways to address this somewhat controversial question, and the principal investigators on this project, Massimo Grassi and Francesca Talamini, took a very elegant one: a multi-lab study. Over 100 researchers from across the globe collected data on a very wide battery of cognitive tasks in both people with and without extensive musical training. While a correlational design, it does help answer pertinent questions, since if no difference is present between musicians and non-musicians, than causation is not likely either. The study resulted in a beautiful dataset, with nuanced results. Do musicians have better working-memory than non-musicians? Well, "maybe", and "it depends"... We did find an effect, but it was very small. I am very happy and proud that we could contribute to this great effort from Leiden!'
+  slug: new-paper-do-musicians-have-better-short-term-memory-than-nonmusicians-a-multilab-study
+  body: 'Recently, our lab has contributed to a long-standing debate: does musical training make you smarter? There are many ways to address this somewhat controversial question, and the principal investigators on this project, Massimo Grassi and Francesca Talamini, took a very elegant one: a multi-lab study. Over 100 researchers from across the globe collected data on a very wide battery of cognitive tasks in both people with and without extensive musical training. While a correlational design, it does help answer pertinent questions, since if no difference is present between musicians and non-musicians, than causation is not likely either. The study resulted in a beautiful dataset, with nuanced results. Do musicians have better working-memory than non-musicians? Well, "maybe", and "it depends"... We did find an effect, but it was very small. I am very happy and proud that we could contribute to this great effort from Leiden!'
+  link: https://doi.org/10.1177/25152459251379432
+  link_label: Read the paper
+  image: 2025-multilab-figure.jpg
+- date: '2025-09-26'
   kind: paper
-  title: "New paper in Cerebral Cortex: brain responses to rhythm at different tempi"
-  text: "With Atser Damsma and colleagues we show that tempo-dependent EEG responses at the beat can be mimicked by both an oscillator and an evoked model."
-  link: "https://doi.org/10.1093/cercor/bhaf258"
+  title: 'New paper in Cerebral Cortex: EEG responses to rhythm at different tempi'
   project: rhythm
-
-- date: 2025-09-01
+  text: 'New paper out in Cerebral Cortex, spearheaded by Atser Damsma. When you listen to rhythm, you can often feel a regular beat. If a rhythm slows down or speeds up, your perception of the beat changes. We set out to test whether we can detect this in EEG. The answer is yes. The neural synchronisation with the beat shifts to a different level in the rhythm if we change the tempo. But then things got more interesting: we tried modelling this shift, using an entrainment model, and a simple model of evoked responses. Turns out both models can mimic the metrical shift that happens with a tempo-change! So what does neural synchronisation to beat-specific frequencies mean? We argue that evoked responses can explain more than we may have thought...'
+  slug: new-paper-eeg-responses-to-rhythm-at-different-tempi
+  body: 'New paper out in Cerebral Cortex, spearheaded by Atser Damsma. When you listen to rhythm, you can often feel a regular beat. If a rhythm slows down or speeds up, your perception of the beat changes. We set out to test whether we can detect this in EEG. The answer is yes. The neural synchronisation with the beat shifts to a different level in the rhythm if we change the tempo. But then things got more interesting: we tried modelling this shift, using an entrainment model, and a simple model of evoked responses. Turns out both models can mimic the metrical shift that happens with a tempo-change! So what does neural synchronisation to beat-specific frequencies mean? We argue that evoked responses can explain more than we may have thought...'
+  link: https://doi.org/10.1093/cercor/bhaf258
+  link_label: Read the paper
+  more_links:
+  - label: Data and code
+    url: https://osf.io/ghp94/
+  image: 2025-cerebral-cortex-figure.jpg
+- date: 2025-09
   kind: media
   lang: nl
-  title: "NEMO Kennislink: uit de maat klappen"
-  text: "Fleur legt uit wat er naast ritmegevoel nog meer meespeelt als je meeklapt met muziek."
-  link: "https://www.universiteitleiden.nl/in-de-media/2025/09/fleur-bouwer-in-de-media"
-
-- date: 2024-11-26
+  title: 'NEMO Kennislink: uit de maat klappen'
+  text: Fleur legt uit wat er naast ritmegevoel nog meer meespeelt als je meeklapt met muziek.
+  link: https://www.universiteitleiden.nl/in-de-media/2025/09/fleur-bouwer-in-de-media
+- date: '2024-11-26'
   kind: media
+  title: 'NEMO blijft nieuwsgierig: waarom is mijn maatgevoel niet goed?'
   lang: nl
-  title: "Waarom tellen dansers af met 5, 6, 7, 8?"
-  text: "Bij BNN/VARA Alledaagse Vragen legt Fleur uit wat ritmegevoel te maken heeft met dansen."
-
-- date: 2024-11-26
+  text: Waarom is mijn maatgevoel niet goed? Dit was 1 van de vragen die gesteld worden op de website van NEMO en die ik mocht beantwoorden!
+  old_slug: nemo-blijf-nieuwsgierig
+  link: https://blijfnieuwsgierig.nl/vragen/hoe-komt-het-dat-mijn-maatgevoel-niet-zo-goed-is/
+  link_label: Lees het antwoord
+- date: '2024-11-26'
   kind: media
+  title: Waarom tellen dansers af met 5,6,7,8?
   lang: nl
-  title: "NEMO Blijf nieuwsgierig: waarom is mijn maatgevoel niet goed?"
-  text: "Een van de vragen op de website van NEMO, beantwoord door Fleur."
-
-- date: 2024-11-01
+  text: Bij BNN/Vara Alledaagse Vragen legt Fleur uit wat ritmegevoel te maken heeft met dansen.
+  old_slug: waarom-tellen-dansers-af-met-5678
+- date: 2024-11
   kind: grant
-  title: "NWO grant for Tuning in together"
-  text: "An NWO Open Competition XS grant lets us study whether listening to music together makes people cooperate."
-  link: "https://www.universiteitleiden.nl/en/news/2024/11/grants-awarded-for-five-innovative-psychology-research-projects"
+  title: NWO grant for Tuning in together
+  text: An NWO Open Competition XS grant lets us study whether listening to music together makes people cooperate.
+  link: https://www.universiteitleiden.nl/en/news/2024/11/grants-awarded-for-five-innovative-psychology-research-projects
   project: connection
-
-- date: 2024-10-04
+- date: '2024-10-04'
   kind: outreach
+  title: 3 October University
   lang: nl
-  title: "3 October University"
-  text: "Op de feestdag 3 oktober in Leiden stonden we met een demo van de nieuwe ToontjeHogerKids."
-
-- date: 2024-07-26
+  text: In Leiden is het op 3 oktober feest! En wij stonden tijdens deze feestelijke dag met een demo van de nieuwe ToontjeHogerKids op de Wetenschapswarenmarkt, waar we ontzettend veel enthousiaste bezoekers de spelletjes op de website lieten spelen en van uitleg voorzagen.
+  slug: 3-october-university
+  body: In Leiden is het op 3 oktober feest! En wij stonden tijdens deze feestelijke dag met een demo van de nieuwe ToontjeHogerKids op de Wetenschapswarenmarkt, waar we ontzettend veel enthousiaste bezoekers de spelletjes op de website lieten spelen en van uitleg voorzagen.
+  link: https://app.amsterdammusiclab.nl/thkids/
+  link_label: Speel ToontjeHoger Kids
+  image: 2024-3-october-toontjehoger-kids.jpg
+- date: '2024-07-26'
   kind: media
+  title: Waarom lijken veel liedjes zo op elkaar?
   lang: nl
-  title: "Waarom lijken veel liedjes zo op elkaar?"
-  text: "De Volkskrant zocht het uit, met hulp van Fleur."
+  text: Deze vraag onderzocht de Volkskrant, met hulp van Fleur.
+  old_slug: waarom-lijken-veel-liedjes-zo-op-elkaar
+  link: https://www.volkskrant.nl/muziek/hits-van-adele-u2-jason-mraz-waarom-klinken-ze-allemaal-hetzelfde-omdat-de-basis-hetzelfde-is~b0dcbe3d/
+  link_label: Lees het artikel
+- date: '2024-07-15'
+  kind: paper
+  title: 'New chapter out: how to use ERPs to study beat perception'
+  project: rhythm
+  text: 'Now officially out: our updated chapter on how to probe beat perception in human adults, newborns, and nonhuman primates. With Henkjan Honing and Gábor Háden, and with many thanks to Hugo Merchant for inviting us to update our chapter from 10 years ago. We discuss what the different aspects of rhythm are that can be probed with ERPs, and how to design stimuli that induce a beat in various ways. We also review how this has been done in human adults, newborns, and nonhuman primates.'
+  slug: updated-chapter-on-probing-beat-perception-with-erps-out-in-neurobiology-of-interval-timing
+  body: 'Now officially out: our updated chapter on how to probe beat perception in human adults, newborns, and nonhuman primates. With Henkjan Honing and Gábor Háden, and with many thanks to Hugo Merchant for inviting us to update our chapter from 10 years ago. We discuss what the different aspects of rhythm are that can be probed with ERPs, and how to design stimuli that induce a beat in various ways. We also review how this has been done in human adults, newborns, and nonhuman primates.
 
-- date: 2024-06-15
+
+    An open access preprint of the chapter (identical to the published version) is available on OSF: https://osf.io/preprints/psyarxiv/azk9q.'
+  link: https://doi.org/10.1007/978-3-031-60183-5_13
+  link_label: Read the chapter
+  more_links:
+  - label: Open-access preprint
+    url: https://doi.org/10.31234/osf.io/azk9q
+  image: 2024-erp-chapter-figure.jpg
+- date: '2024-06-15'
   kind: outreach
+  title: Snaartjes festival 2024
   lang: nl
-  title: "Snaartjes festival 2024"
-  text: "Dankzij een wetenschapscommunicatiebeurs van NWO organiseerden we, samen met Merel Vercammen, Snaartjes: een festival over muziek en wetenschap voor kinderen."
-  link: "https://www.universiteitleiden.nl/en/news/2023/11/four-projects-awarded-science-communication-grants"
-
-- date: 2024-04-26
+  text: Dankzij een Wetenschapscommunicatie beurs van NWO organiseerden wij samen met Merel Vercammen op 15 juni Snaartjes, een festival over muziek en wetenschap voor kinderen van 8-12 jaar. En wat was het een fantastische ochtend!
+  slug: snaartjes-festival-2024
+  body: Dankzij een Wetenschapscommunicatie beurs van NWO organiseerden wij samen met Merel Vercammen op 15 juni Snaartjes, een festival over muziek en wetenschap voor kinderen van 8-12 jaar. En wat was het een fantastische ochtend!
+  link: https://www.youtube.com/watch?v=QDQy0u4aMMI
+  link_label: Bekijk de aftermovie
+  more_links:
+  - label: Over het project (NWO)
+    url: https://www.nwo.nl/projecten/nwa139723021
+- date: '2024-04-26'
   kind: media
+  title: Waarom zijn Meau en Flemming zo populair bij kinderen?
   lang: nl
-  title: "Waarom zijn Meau en Flemming zo populair bij kinderen?"
-  text: "Fleur werkte mee aan het antwoord in een artikel in de Volkskrant."
-
-- date: 2022-11-30
+  text: Fleur werkte mee aan het antwoord in een artikel in de Volkskrant.
+  old_slug: waarom-zijn-meau-en-flemming-zo-populair-bij-kinderen
+  link: https://www.volkskrant.nl/muziek/je-hebt-me-beschadigd-brult-de-8-jarige-vrolijk-mee-waarom-zijn-artiesten-als-meau-en-flemming-zo-populair-bij-kinderen~b7d89e92/
+  link_label: Lees het artikel
+- date: '2023-06-09'
+  kind: lab
+  title: 'Meedoen aan onderzoek: hoe muzikaal ben jij?'
+  lang: nl
+  text: Weten de mensen om jou heen hoeveel je met muziek hebt? Of weet je dit van de mensen om jou heen? Wij onderzoeken of iemand voor een ander kan inschatten hoeveel betekenis diegene aan muziek geeft. Dit kan bijvoorbeeld belangrijk zijn bij muziektherapie.
+  old_slug: participate-in-research-how-musical-are-you-dutch-only
+- date: '2022-11-30'
   kind: outreach
-  title: "Launch of ToontjeHoger"
-  text: "Together with the Music Cognition Group, we built a website of games that test your musicality and explain the science behind it, through the KNAW Gewaardeerd! programme."
-  link: "https://toontjehoger.amsterdammusiclab.nl/toontjehoger"
+  title: Launch of Toontjehoger!
+  text: Together with the awesome Music Cognition Group, we developed a website for science communication, through the KNAW Gewaardeerd! program. On this website, you can play a few small games to learn about your own musicality. Have a look at Toontjehoger!
+  slug: launch-of-toontjehoger
+  body: 'Together with the awesome Music Cognition Group, we developed a website for science communication, through the KNAW Gewaardeerd! program. On this website, you can play a few small games to learn about your own musicality. Have a look at Toontjehoger!
 
-- date: 2022-10-30
+
+    I was asked to give some explanation about the project in the Nacht van KRO-NCRV, on Radio 1.'
+  link: https://toontjehoger.amsterdammusiclab.nl/toontjehoger
+  link_label: Play ToontjeHoger
+  more_links:
+  - label: Listen to the radio fragment (in Dutch)
+    url: https://www.nporadio1.nl/fragmenten/de-nacht-van/e93aabcd-d26c-4077-a72d-b7900bf2b35a/2022-12-19-iedereen-is-muzikaal
+- date: '2022-10-30'
   kind: media
-  title: "Item on Amsterdam Dance Event in Atlas TV"
-  text: "On the occasion of the Amsterdam Dance Event, Fleur explained a few things about dancing and your sense of rhythm."
-
-- date: 2022-02-28
+  title: Item on Amsterdam Dance Event in Atlas TV
+  text: On the occasion of the Amsterdam Dance Event, I was asked to explain a few things about dancing and your sense of rhythm on Atlas TV (NPO2).
+  old_slug: item-on-amsterdam-dance-event-in-atlas-tv
+  link: https://www.npostart.nl/VPWON_1340578
+  link_label: Watch on NPO Start
+- date: '2022-02-28'
   kind: outreach
-  title: "NEMO children’s lecture"
-  text: "A lecture for a room full of curious children at science museum NEMO in Amsterdam."
+  title: NEMO children's lecture
+  text: I had the pleasure this month to give a lecture at the science museum NEMO in Amsterdam. A room full of curious children as an audience, it does not get much better! We danced, sang, and explored the wonders of rhythm and music in the brain. I had a blast! NEMO wrote a report on this event.
+  old_slug: nemo-childrens-lecture
+  link: https://www.nemosciencemuseum.nl/nl/wat-is-er-te-doen/activiteiten/kinderlezingen/heb-ik-een-goed-ritmegevoel/
+  link_label: NEMO’s report (in Dutch)
+- date: '2021-11-29'
+  kind: outreach
+  title: Lecture Universiteit van Nederland online!
+  text: Last September, I had the pleasure of giving a public lecture for the Universiteit van Nederland in a sold-out Paradiso. The recording (in Dutch) is now online! With many thanks to the organisers for making this such a cool project to be part of.
+  old_slug: lecture-universiteit-van-nederland-online
+  link: https://www.universiteitvannederland.nl/college/waarom-kan-jouw-partner-niet-dansen
+  link_label: Watch the lecture (in Dutch)
+- date: '2021-11-29'
+  kind: paper
+  title: 'Preprint: "A silent disco: Persistent entrainment of low-frequency neural oscillations underlies beat-based, but not pattern-based temporal expectations"'
+  project: rhythm
+  text: 'Is something special about beat-based expectations in rhythm? In this paper, we try to find out! The preprint is now fully updated with all the latest analyses, and online on bioRxiv:'
+  slug: preprint-a-silent-disco-persistent-entrainment-of-low-frequency-neural-oscillations-underlies-beat-based-but-not-pattern-based-temporal-expectations
+  body: 'Is something special about beat-based expectations in rhythm? In this paper, we try to find out! The preprint is now fully updated with all the latest analyses, and online on bioRxiv:
+
+
+    Bouwer, F.L., Fahrenfort, J.J., Millard, S.K., Kloosterman, N.A., Slagter, H.A. (preprint). A silent disco: Persistent entrainment of low-frequency neural oscillations underlies beat-based, but not pattern-based temporal expectations. bioRxiv, 2020.01.08.899278; doi: https://doi.org/10.1101/2020.01.08.899278
+
+
+    Temporal expectations (e.g., predicting "when") facilitate sensory processing, and are suggested to rely on entrainment of low frequency neural oscillations to regular rhythmic input, such as a beat in music ("beat-based" expectations). However, temporal expectations can also be based on predictable repeated patterns ("pattern-based" expectations). These two types of expectations often occur simultaneously, but whether they are subserved by the same neural mechanisms is currently a topic of active debate. Here, we addressed this outstanding issue by examining EEG activity and behavioral responses during silent periods following rhythmic auditory sequences designed to elicit only beat-based or pattern-based expectations, or with random timing. In Experiment 1 (N = 32), participants rated how well probe tones at various time points fitted the previous rhythm. Beat-based expectations affected fitness ratings for at least two beat-cycles, while the effects of pattern-based expectations subsided
+    after the first expected time point in the silence window. In Experiment 2 (N = 27), using EEG, we found a Contingent Negative Variation (CNV) following the final tones of pattern-based, but not beat-based sequences. Moreover, we found enhanced power in the EEG signal at the beat frequency for beat-based sequences both during listening and the silence, while for pattern-based sequences, enhanced power at a pattern-specific frequency was only present during listening, not during the silence. Finally, we show how multivariate pattern decoding and multi scale entropy - measures sensitive to non-oscillatory components of the signal - can be used to probe temporal expectations. Taken together, we show that beat-based and pattern-based expectations affect behavior differentially, with beat-based expectations exerting longer-lasting effects than pattern-based expectations. At a neural level, climbing activity may specifically reflect pattern-based expectations, while persistent low frequency
+    oscillations may be specific to beat-based expectations. When studying responses to complex rhythmic stimuli, like in music and language, both types of expectations should therefore be considered.'
+  link: https://doi.org/10.1101/2020.01.08.899278
+  link_label: Read the preprint
+- date: '2021-11-16'
+  kind: media
+  title: TV item in EditieNL on how musical preference fluctuates during the day
+  text: 'I was asked by RTL EditieNL to give some comments on an article by Ole Heggli, Jan Stupacher, and Peter Vuust about diurnal fluctuations in music preference. Fun to do, but you have to watch carefully, I appear on screen for about 15 seconds... (NB: the video item will only be available for a limited time).'
+  old_slug: tv-item-in-editienl-on-how-musical-preference-fluctuates-during-the-day
+  link: https://www.rtlnieuws.nl/editienl/artikel/5267326/every-breath-you-take-muziek-hit-police-wanneer-luisteren
+  link_label: Watch the item (RTL)
+- date: '2021-08-27'
+  kind: paper
+  title: Commentary about individual differences out in Journal of Cognition
+  project: rhythm
+  text: My fabulous postdoc supervisor Prof. Heleen Slagter invited me to co-author a commentary about individual differences in the Journal of Cognition. Out now!
+  slug: commentary-about-individual-differences-out-in-journal-of-cognition
+  body: 'My fabulous postdoc supervisor Prof. Heleen Slagter invited me to co-author a commentary about individual differences in the Journal of Cognition. Out now!
+
+
+    Slagter, H. A., & Bouwer, F. L. (2021). Qualitative Versus Quantitative Individual Differences in Cognitive Neuroscience. Journal of Cognition, 4(1), 49. DOI: http://doi.org/10.5334/joc.170
+
+
+    Individual differences in cognitive performance can be quantitative or qualitative in nature. Accounting for qualitative as well as quantitative individual differences is of importance for cognitive neuroscience, where a central goal is not only to relate brain function to behavior generally, but also to understand and predict individual behavior from neural data. In turn, cognitive neuroscience can help determine the nature of individual differences by revealing the underlying neural mechanisms and uncover qualitative individual differences that are not immediately apparent from behavioral data, enhancing our understanding of why and how people behave the way they do.'
+  link: https://doi.org/10.5334/joc.170
+  link_label: Read the commentary
+- date: '2021-08-24'
+  kind: paper
+  title: Paper on rhythmic abilities in humans and animals out in Phil Trans
+  project: rhythm
+  text: Two years after the fabulous workshop organised by Henkjan Honing, Sonja Kotz, Andrea Ravignani, and Michael Greenfield, the special theme issue on rhythm and rhythmic interactions came out in Philosophical Transactions B, including a paper co-authored by me on how to test rhythmic abilities in human and non-human animals. More on this in my previous post about the preprint. Note that the preprint is identical to the published version and open access.
+  slug: paper-on-rhythmic-abilities-in-humans-and-animals-out-in-phil-trans
+  body: 'Two years after the fabulous workshop organised by Henkjan Honing, Sonja Kotz, Andrea Ravignani, and Michael Greenfield, the special theme issue on rhythm and rhythmic interactions came out in Philosophical Transactions B, including a paper co-authored by me on how to test rhythmic abilities in human and non-human animals. More on this in my previous post about the preprint. Note that the preprint is identical to the published version and open access.
+
+
+    Bouwer, F.L., Nityananda V., Rouse, A. A., & ten Cate, C. (2021). Rhythmic abilities in humans and non-human animals: a review and recommendations from a methodological perspective. Philosophical Transactions of the Royal Society B, 376, 20200335. doi: 10.1098/rstb.2020.0335
+
+
+    Rhythmic behaviour is ubiquitous in both human and non-human animals, but it is unclear whether the cognitive mechanisms underlying the specific rhythmic behaviours observed in different species are related. Laboratory experiments combined with highly controlled stimuli and tasks can be very effective in probing the cognitive architecture underlying rhythmic abilities. Rhythmic abilities have been examined in the laboratory with explicit and implicit perception tasks, and with production tasks, such as sensorimotor synchronization, with stimuli ranging from isochronous sequences of artificial sounds to human music. Here, we provide an overview of experimental find- ings on rhythmic abilities in human and non-human animals, while critically considering the wide variety of paradigms used. We identify several gaps in what is known about rhythmic abilities. Many bird species have been tested on rhythm perception, but research on rhythm production abilities in the same birds is lacking. By
+    contrast, research in mammals has primarily focused on rhythm production rather than perception. Many experiments also do not differentiate between possible components of rhythmic abilities, such as processing of single temporal intervals, rhythmic patterns, a regular beat or hierarchical metrical structures. For future research, we suggest a careful choice of paradigm to aid cross-species comparisons, and a critical consideration of the multifaceted abilities that underlie rhythmic behaviour.'
+  link: https://doi.org/10.1098/rstb.2020.0335
+  link_label: Read the paper
+- date: '2021-07-06'
+  kind: talk
+  title: Symposium on sad music
+  text: On June 24, after two intensive and inspiring weeks of the ABC Summer School on Musicality, I had the honour to moderate a symposium on sad music, with a keynote lecture by Prof. David Huron, to celebrate him receiving the Honorary Frijda Chair. A recording of this hybrid symposium is now online, including the keynote lecture, a discussion with Dr. Psyche Loui and Dr. Mariska Kret, and beautiful sad music played by Diamanda la Berge Dramm. You can watch the recording by clicking the link above!
+  old_slug: symposium-on-sad-music
+  link: http://mcg.uva.nl/symposium
+  link_label: Watch the symposium
+- date: '2021-07-06'
+  kind: media
+  title: Why do we like music? Article in the Volkskrant
+  text: 'Last Saturday, an article appeared in the Volkskrant about why we like music so much. Prof. Henkjan Honing (my PhD supervisor) comments on the possible evolutionary roots for our love for music, and I chime in with some thoughts on why our brains like music so much (spoiler: something to do with expectations!).'
+  old_slug: why-do-we-like-music-article-in-the-volkskrant
+  link: https://www.volkskrant.nl/wetenschap/dit-weekend-weer-de-eerste-festivals-waarom-houden-we-zo-van-muziek-en-heeft-dat-ook-nut~baffd6ae/
+  link_label: Read the article (in Dutch)
+- date: '2021-05-28'
+  kind: media
+  title: Item in Kidsweek about earworms (in Dutch)
+  text: The Nationale Wetenschaps Agenda (NWA) has a theme months about music! I was asked to contribute to an item for school children about earworms (the song stuck inside your head). It turned into a whole project, including an article in Kidsweek, a video, and even materials to use in the classroom!
+  slug: item-in-kidsweek-about-earworms-in-dutch
+  body: The Nationale Wetenschaps Agenda (NWA) has a theme months about music! I was asked to contribute to an item for school children about earworms (the song stuck inside your head). It turned into a whole project, including an article in Kidsweek, a video, and even materials to use in the classroom!
+  link: https://wetenschapsagenda.nl/oorwurm
+  link_label: The earworm project (in Dutch)
+  more_links:
+  - label: Watch the video
+    url: https://youtu.be/iqJSfKFYDrQ
+- date: '2021-04-25'
+  kind: paper
+  title: How can we test rhythmic abilities in human and non-human animals? New preprint on PsyArxiv!
+  project: rhythm
+  text: In the summer of 2019, I was lucky to be invited to be part of a Lorentz workshop, in which an inspiring group of researchers came together to discuss rhythm from every possible angle. This workshop was instigated by a fabulous organising team:Henkjan Honing, Sonja Kotz, Andrea Ravignani, and Michael Greenfield. The results of all the fruitful discussions will be published soon in a Special Issue in Philosophical Transactions B, including a paper co-authored by me on how to test rhythmic abilities in human and non-human animals.
+  slug: how-can-we-test-rhythmic-abilities-in-human-and-non-human-animals-new-preprint-on-psyarxiv
+  body: 'In the summer of 2019, I was lucky to be invited to be part of a Lorentz workshop, in which an inspiring group of researchers came together to discuss rhythm from every possible angle. This workshop was instigated by a fabulous organising team:Henkjan Honing, Sonja Kotz, Andrea Ravignani, and Michael Greenfield. The results of all the fruitful discussions will be published soon in a Special Issue in Philosophical Transactions B, including a paper co-authored by me on how to test rhythmic abilities in human and non-human animals.
+
+
+    In the paper, co-authored by Carel ten Cate, Vivek Nityananda, and Andrew Rouse, we discuss how different paradigms are used in different species. For example, birds are often tested on their rhythm perception, while monkeys are often tested on rhythm production, making it very hard to compare their abilities. The paper is now available as a preprint on PsyArxiv!'
+  link: https://doi.org/10.31234/osf.io/pu9yh
+  link_label: Read the preprint
+- date: '2020-11-26'
+  kind: media
+  title: Interview on Radio1 Focus
+  text: 'It was a bit early: 2 am in Hilversum. But also very special to enter the very silent Media Park in the middle of the night, and to have time for an elaborate interview about music, science, and why I happen to always listen to Frozen songs.'
+  old_slug: interview-on-radio1-focus
+- date: '2020-11-05'
+  kind: grant
+  title: Awarded NWO Veni grant
+  project: rhythm
+  text: Extremely happy to announce that I have been awarded an NWO Veni grant! This personal grant will allow me to continue my research into how we perceive patterns and the beat in musical rhythm for the next 4 years. You can find more information in the NWO press release.
+  old_slug: awarded-nwo-veni-grant
+  link: https://www.nwo.nl/en/news/162-researchers-awarded-nwo-veni-grant-worth-250000-euros
+  link_label: NWO press release
+- date: '2020-06-25'
+  kind: paper
+  title: Paper on beat-based and memory-based expectations out in Journal of Cognitive Neuroscience
+  project: rhythm
+  text: ''
+  slug: paper-on-beat-based-and-memory-based-expectations-out-in-journal-of-cognitive-neuroscience
+  body: 'Bouwer, F.L., Honing, H., & Slagter, H.A. (2020). Beat-based and Memory-based Temporal Expectations in Rhythm: Similar Perceptual Effects, Different Underlying Mechanisms
+
+
+    Predicting the timing of incoming information allows the brain to optimize information processing in dynamic environments. Behaviorally, temporal expectations have been shown to facilitate processing of events at expected time points, such as sounds that coincide with the beat in musical rhythm. Yet, temporal expectations can develop based on different forms of structure in the environment, not just the regularity afforded by a musical beat. Little is still known about how different types of temporal expectations are neurally implemented and affect performance. Here, we orthogonally manipulated the periodicity and predictability of rhythmic sequences to examine the mechanisms underlying beat-based and memory-based temporal expectations, respectively. Behaviorally and using EEG, we looked at the effects of beat-based and memory-based expectations on auditory processing when rhythms were task-relevant or task-irrelevant. At expected time points, both beat-based and memory-based expectations
+    facilitated target detection and led to attenuation of P1 and N1 responses, even when expectations were task-irrelevant (unattended). For beat-based expectations, we additionally found reduced target detection and enhanced N1 responses for events at unexpected time points (e.g., off-beat), regardless of the presence of memory-based expectations or task relevance. This latter finding supports the notion that periodicity selectively induces rhythmic fluctuations in neural excitability and furthermore indicates that, although beat-based and memory-based expectations may similarly affect auditory processing of expected events, their underlying neural mechanisms may be different.'
+  link: https://doi.org/10.1162/jocn_a_01529
+  link_label: Read the paper
+  more_links:
+  - label: Open-access preprint
+    url: https://doi.org/10.1101/613398
+  - label: Data and code
+    url: https://osf.io/vfhqr/
+- date: '2019-04-23'
+  kind: paper
+  title: 'New preprint on BioRxiv: is beat perception special?'
+  project: rhythm
+  text: ''
+  slug: new-preprint-on-biorxiv-is-beat-perception-special
+  body: 'F.L. Bouwer, H. Honing, & H.A. Slagter (2019). Beat-based and memory-based temporal expectations in rhythm: similar perceptual effects, different underlying mechanisms
+
+
+    Predicting the timing of incoming information allows the brain to optimize information processing in dynamic environments. Behaviorally, temporal expectations have been shown to facilitate processing of events at expected time points, such as sounds that coincide with the beat in musical rhythm. Yet, temporal expectations can develop based on different forms of structure in the environment, not just the regularity afforded by a musical beat. Little is still known about how different types of temporal expectations are neurally implemented and affect performance. Here, we orthogonally manipulated the periodicity and predictability of rhythmic sequences to examine the mechanisms underlying beat-based and memory-based temporal expectations, respectively.
+
+
+    Behaviorally and using EEG, we looked at the effects of beat-based and memory-based expectations on auditory processing with and without attention. At expected time points, both beat-based and memory-based expectations facilitated target detection and led to attenuation of P1 and N1 responses, even when expectations were task-irrelevant (unattended). At unexpected time points, we found reduced target detection and enhanced N1 responses when beat-based expectations could be formed, regardless of the presence of memory-based expectations or task relevance. This latter finding supports the notion that periodicity selectively induces rhythmic fluctuations in neural excitability and furthermore indicates that while beat-based and memory-based expectations may similarly affect auditory processing of expected events, their underlying neural mechanisms may be different.
+
+
+    Full text
+
+
+    Available for download on BioRxiv'
+  link: https://doi.org/10.1101/613398
+  link_label: Read the preprint
+- date: '2018-07-16'
+  kind: paper
+  title: Paper on beat perception in monkeys accepted in Frontiers in Neuroscience
+  project: rhythm
+  text: ''
+  slug: paper-on-beat-perception-in-monkeys-accepted-in-frontiers-in-neuroscience
+  body: 'Honing, H., Bouwer, F.L., Prado, L., & Merchant, H. (2018). Rhesus Monkeys (Macaca mulatta) Sense Isochrony in Rhythm, but Not the Beat: Additional Support for the Gradual Audiomotor Evolution Hypothesis
+
+
+    Charles Darwin suggested the perception of rhythm to be common to all animals. While only recently experimental research is finding some support for this claim, there are also aspects of rhythm cognition that appear to be species-specific, such as the capability to perceive a regular pulse (or beat) in a varying rhythm. In the current study, using EEG, we adapted an auditory oddball paradigm that allows for disentangling the contributions of beat perception and isochrony to the temporal predictability of the stimulus. We presented two rhesus monkeys (Macaca mulatta) with a rhythmic sequence in two versions: an isochronous version, that was acoustically accented such that it could induce a duple meter (like a march), and a jittered version using the same acoustically accented sequence but that was presented in a randomly timed fashion, as such disabling beat induction.
+
+
+    The results reveal that monkeys are sensitive to the isochrony of the stimulus, but not its metrical structure. The MMN was influenced by the isochrony of the stimulus, resulting in a larger MMN in the isochronous as opposed to the jittered condition. However, the MMN for both monkeys showed no interaction between metrical position and isochrony. So, while the monkey brain appears to be sensitive to the isochrony of the stimulus, we find no evidence in support of beat perception. We discuss these results in the context of the gradual audiomotor evolution (GAE) hypothesis (Merchant and Honing, 2014) that suggests beat-based timing to be omnipresent in humans but only weakly so or absent in non-human primates.
+
+
+    Full text
+
+
+    Available for open access download on the publisher''s website'
+  link: https://doi.org/10.3389/fnins.2018.00475
+  link_label: Read the paper
+- date: '2018-01-30'
+  kind: paper
+  title: Paper on syntax in music and language accepted in Frontiers in Psychology
+  project: learning
+  text: ''
+  slug: paper-on-syntax-in-music-and-language-accepted-in-frontiers-in-psychology
+  body: 'M.P. Roncaglia-Denissen, F.L. Bouwer, & H. Honing (2018). Decision Making Strategy and the Simultaneous Processing of Syntactic Dependencies in Language and Music
+
+
+    Despite differences in their function and domain-specific elements, syntactic processing in music and language is believed to share cognitive resources. This study aims to investigate whether the simultaneous processing of language and music share the use of a common syntactic processor or more general attentional resources. To investigate this matter we tested musicians and non-musicians using visually presented sentences and aurally presented melodies containing syntactic local and long-distance dependencies. Accuracy rates and reaction times of participants’ responses were collected.
+
+
+    In both sentences and melodies, unexpected syntactic anomalies were introduced. This is the first study to address the processing of local and long-distance dependencies in language and music combined while reducing the effect of sensory memory. Participants were instructed to focus on language (language session), music (music session), or both (dual session). In the language session, musicians and non-musicians performed comparably in terms of accuracy rates and reaction times. As expected, groups’ differences appeared in the music session, with musicians being more accurate in their responses than non-musicians and only the latter showing an interaction between the accuracy rates for music and language syntax. In the dual session musicians were overall more accurate than non-musicians. However, both groups showed comparable behavior, by displaying an interaction between the accuracy rates for language and music syntax responses. In our study, accuracy rates seem to better capture the
+    interaction between language and music syntax; and this interaction seems to indicate the use of distinct, however, interacting mechanisms as part of decision making strategy. This interaction seems to be subject of an increase of attentional load and domain proficiency. Our study contributes to the long-lasting debate about the commonalities between language and music by providing evidence for their interaction at a more domain-general level.
+
+
+    Full text
+
+
+    Available for open access download from the publisher''s website'
+  link: https://doi.org/10.3389/fpsyg.2018.00038
+  link_label: Read the paper
+- date: '2018-01-10'
+  kind: paper
+  title: Paper on rhythmic complexity accepted in PLoS ONE
+  project: rhythm
+  text: ''
+  slug: paper-on-rhythmic-complexity-accepted-in-plos-one
+  body: 'F.L. Bouwer, J.A. Burgoyne, D. Odijk, H. Honing, & J.A. Grahn (2018). What makes a rhythm complex? The influence of musical training and accent type on beat perception
+
+
+    Perception of a regular beat in music is inferred from different types of accents. For example, increases in loudness cause intensity accents, and the grouping of time intervals in a rhythm creates temporal accents. Accents are expected to occur on the beat: when accents are “missing” on the beat, the beat is more difficult to find. However, it is unclear whether accents occurring off the beat alter beat perception similarly to missing accents on the beat. Moreover, no one has examined whether intensity accents influence beat perception more or less strongly than temporal accents, nor how musical expertise affects sensitivity to each type of accent. In two experiments, we obtained ratings of difficulty in finding the beat in rhythms with either temporal or intensity accents, and which varied in the number of accents on the beat as well as the number of accents off the beat.
+
+
+    In both experiments, the occurrence of accents on the beat facilitated beat detection more in musical experts than in musical novices. In addition, the number of accents on the beat affected beat finding more in rhythms with temporal accents than in rhythms with intensity accents. The effect of accents off the beat was much weaker than the effect of accents on the beat and appeared to depend on musical expertise, as well as on the number of accents on the beat: when many accents on the beat are missing, beat perception is quite difficult, and adding accents off the beat may not reduce beat perception further. Overall, the different types of accents were processed qualitatively differently, depending on musical expertise. Therefore, these findings indicate the importance of designing ecologically valid stimuli when testing beat perception in musical novices, who may need different types of accent information than musical experts to be able to find a beat. Furthermore, our findings stress
+    the importance of carefully designing rhythms for social and clinical applications of beat perception, as not all listeners treat all rhythms alike.
+
+
+    Full article, sound examples, and the data
+
+
+    Available for open access download at the publisher''s website.'
+  link: https://doi.org/10.1371/journal.pone.0190322
+  link_label: Read the paper
+- date: '2017-12-20'
+  kind: grant
+  title: Travel grant awarded by the Landelijk Netwerk Vrouwelijke Hoogleraren
+  project: health
+  text: I am very happy to report that I am one of 4 recipients of the Distinguished Women Scientists Fund, awarded by the Landelijk Netwerk Vrouwelijke Hoogleraren (Dutch network of women professors). The DWSF is a travel grant, and will allow me to examine rhythm perception in patients with Parkinson's disease in collaboration with Dr. Jessica Grahn. I am very excited to start this new line of research!
+  old_slug: travel-grant-awarded-by-the-landelijk-netwerk-vrouwelijke-hoogleraren
+  link: https://www.lnvh.nl/a-1662/lnvh-newsletter-december-2017
+  link_label: LNVH newsletter
+- date: '2017-12-01'
+  kind: talk
+  title: Presenting at SMART and NVP
+  text: I will be presenting at both the the SMART Cognitive Science Conference and the bi-annual conference of the NVP this month.
+  slug: presenting-at-smart-and-nvp
+  body: 'I will be presenting at both the the SMART Cognitive Science Conference and the bi-annual conference of the NVP this month.
+
+
+    At SMART, I will present behavioural data from several tests that assess beat perception abilities during the Musicality Phenotype workshop.
+
+
+    At NVP, I will present EEG data looking at the difference between beat-based and memory-based expectations in musical rhythm.'
+- date: '2017-11-25'
+  kind: outreach
+  title: Mini-lecture during the Mensa SlimmerIQuiz
+  text: On November 15, 2017, I gave a mini-lecture for the brightest primary school student in the country during the Mensa SlimmerIQuiz finals.
+  old_slug: mini-lecture-during-the-mensa-slimmeriquiz
+  link: https://www.youtube.com/watch?v=Af4W-tFNlEc
+  link_label: Watch the lecture on YouTube
+- date: '2017-11-16'
+  kind: media
+  title: Can everyone learn to dance? Article in Quest
+  text: Two journalists from popular science magazine Quest came to visit me at UvA to find out whether they are any good at hearing the beat in rhythm.
+  old_slug: can-everyone-learn-to-dance-article-in-popular-science-magazine-quest-about-beat-perception
+  link: https://www.quest.nl/mens/gezondheid/a26238634/dansen-zonder-talent/
+  link_label: Read the article in Quest (in Dutch)
+- date: '2017-06-23'
+  kind: talk
+  title: 'Conference season has started: Presenting at RPPW, ICON and TRF'
+  text: This summer, I will be presenting the work of our group at several conferences. I will be giving a talk at RPPW 2017 in Birmingham, and I will present posters both at ICON 2017 in Amsterdam, and the first Timing Research Forum conference in Strasbourg.
+  slug: conference-season-presenting-at-rppw-icon-and-trf
+  body: This summer, I will be presenting the work of our group at several conferences. I will be giving a talk at RPPW 2017 in Birmingham, and I will present posters both at ICON 2017 in Amsterdam, and the first Timing Research Forum conference in Strasbourg.
+  more_links:
+  - label: TRF 2017 poster (PDF)
+    url: static/news/2017-poster-trf.pdf
+- date: '2016-12-12'
+  kind: lab
+  title: New position as Postdoctoral Researcher & Lecturer at University of Amsterdam
+  text: I am happy to announce that upon my return from maternity leave, starting January 1st, 2017, I will be working as a postdoctoral researcher and lecturer in the Cognition & Plasticity Lab, supervised by Dr. Heleen Slagter, at the Psychology Department of the University of Amsterdam. I am excited to start my new position!
+  old_slug: new-position-as-postdoctoral-researcher-lecturer-at-university-of-amsterdam
+- date: '2016-09-01'
+  kind: grant
+  title: ABC Talent Grant
+  project: rhythm
+  text: I am the lucky recipient of one of two ABC Talent Grants, awarded in September 2016 by Amsterdam Brain and Cognition. The purpose of this grant (100.000 euros) is to spend one year as a postdoctoral researcher at UvA, continuing my research on rhythm and beat perception in the brain. I will be supervised by Dr. Heleen Slagter and Prof. Henkjan Honing. Dr. Slagter is an expert on predictive processing in the brain, and I am very much looking forward to working with her on connecting my research about rhythm and beat perception with general theories about predictive processing!
+  old_slug: abc-talent-grant
+- date: '2016-06-11'
+  kind: media
+  title: Interview in VPRO Nooit Meer Slapen
+  text: On 10 June, the VPRO radio show Nooit Meer Slapen broadcast an interview by Botte Jellema with me and his brother, percussionist Haye Jellema.
+  old_slug: interview-in-vpro-nooit-meer-slapen
+- date: '2016-06-02'
+  kind: media
+  title: Item about my dissertation on BNR Nieuwsradio
+  text: BNR Nieuwsradio reported (in Dutch) about my research in both an article and a radio item on June 1st.
+  slug: item-about-my-dissertation-on-bnr-nieuwsradio
+  body: BNR Nieuwsradio reported (in Dutch) about my research in both an article and a radio item on June 1st.
+  link: http://www.bnr.nl/nieuws/wetenschap/10305750/iedereen-hoort-de-maat-van-de-muziek
+  link_label: Read the BNR article (in Dutch)
+  audio: 2016-bnr-nieuwsradio.mp3
+- date: '2016-05-27'
+  kind: media
+  title: My dissertation on the UvA homepage
+  text: Surrounding my PhD defense on June 8, 2016, my research was highlighted on the homepage of the University of Amsterdam.
+  old_slug: my-dissertation-on-the-uva-homepage
+  link: http://www.uva.nl/en/news-events/news/uva-news/uva-news/uva-news/content/folder-3/2016/05/brain-picks-up-the-beat-of-music-automatically.html
+  link_label: Read the UvA news item
+- date: '2016-05-13'
+  kind: lab
+  title: 'Save the date: Workshop on beat perception and temporal prediction on June 7th 2016'
+  text: Surrounding the festive event of my defense, we will organise a workshop on beat perception and temporal predictions. You are cordially invited to join us for an afternoon of inspiring talks about these topics. Confirmed speakers include Dr. Jessica Grahn, Prof. Dr. Henkjan Honing, Prof. Dr. Sonja Kotz, Prof. Dr. István Winkler, and Dr. Rebecca Schaefer. The workshop will take place on the afternoon of Tuesday, June 7th 2016, from 14.00 till 17.00 h.
+  slug: save-the-date-mini-workshop-on-beat-perception-and-temporal-prediction-on-june-7th
+  body: Surrounding the festive event of my defense, we will organise a workshop on beat perception and temporal predictions. You are cordially invited to join us for an afternoon of inspiring talks about these topics. Confirmed speakers include Dr. Jessica Grahn, Prof. Dr. Henkjan Honing, Prof. Dr. Sonja Kotz, Prof. Dr. István Winkler, and Dr. Rebecca Schaefer. The workshop will take place on the afternoon of Tuesday, June 7th 2016, from 14.00 till 17.00 h.
+  more_links:
+  - label: Workshop programme (PDF)
+    url: static/news/2016-workshop-programme.pdf
+- date: '2016-05-13'
+  kind: lab
+  title: PhD defence on 8 June 2016
+  text: I publicly defended my dissertation on Wednesday 8 June 2016 in the Aula of the University of Amsterdam.
+  slug: phd-dissertation-available-defense-on-june-8th-2016
+  body: 'I publicly defended my dissertation on Wednesday 8 June 2016 in the Aula of the University of Amsterdam.
+
+
+    On the afternoon of Tuesday, June 7th, from 14.00 till 17.00 h, we will host a mini-workshop on beat perception and temporal predictions. You are cordially invited to join us for an afternoon of inspiring talks about these topics. Confirmed speakers include Dr. Jessica Grahn, Prof. Dr. Henkjan Honing, Prof. Dr. Sonja Kotz, Prof. Dr. István Winkler, and Dr. Rebecca Schaefer.'
+- date: '2016-02-29'
+  kind: paper
+  title: Paper accepted for publication in Neuropsychologia
+  project: rhythm
+  text: ''
+  slug: paper-accepted-for-publication-in-neuropsychologia
+  body: 'F.L. Bouwer, C.M. Werner, M. Knetemann, & H. Honing (2016). Disentangling beat perception from sequential learning and examining the influence of attention and musical abilities on ERP responses to rhythm
+
+
+    Beat perception is the ability to perceive temporal regularity in musical rhythm. When a beat is perceived, predictions about upcoming events can be generated. These predictions can influence processing of subsequent rhythmic events. However, statistical learning of the order of sounds in a sequence can also affect processing of rhythmic events and must be differentiated from beat perception. In the current study, using EEG, we examined the effects of attention and musical abilities on beat perception. To ensure we measured beat perception and not absolute perception of temporal intervals, we used alternating loud and soft tones to create a rhythm with two hierarchical metrical levels. To control for sequential learning of the order of the different sounds, we used temporally regular (isochronous) and jittered rhythmic sequences. The order of sounds was identical in both conditions, but only the regular condition allowed for the perception of a beat. Unexpected intensity decrements were
+    introduced on the beat and offbeat. In the regular condition, both beat perception and sequential learning were expected to enhance detection of these deviants on the beat. In the jittered condition, only sequential learning was expected to affect processing of the deviants. ERP responses to deviants were larger on the beat than offbeat in both conditions. Importantly, this difference was larger in the regular condition than in the jittered condition, suggesting that beat perception influenced responses to rhythmic events in addition to sequential learning. The influence of beat perception was present both with and without attention directed at the rhythm. Moreover, beat perception as measured with ERPs correlated with musical abilities, but only when attention was directed at the stimuli. Our study shows that beat perception is possible when attention is not directed at a rhythm. In addition, our results suggest that attention may mediate the influence of musical abilities on beat perception.
+    Full article
+
+
+    Available for open access download at the publisher''s website. Sound example 1: regular sequence
+
+
+    [audio mp3="https://fleurbouwer.nl/wp-content/uploads/2016/02/Sound_example_regular.mp3"][/audio] Sound example 2: jittered sequence'
+  link: https://doi.org/10.1016/j.neuropsychologia.2016.02.018
+  link_label: Read the paper
+- date: '2016-02-29'
+  kind: paper
+  title: New paper on complexity in rhythm submitted
+  project: rhythm
+  text: ''
+  slug: new-paper-on-complexity-in-rhythm-submitted-for-publication
+  body: 'F.L. Bouwer, J.A. Burgoyne, D. Odijk, H.Honing, & J.A. Grahn (under review). What makes a Rhythm Complex? The Influence of Musical Training and Accent Type on Beat Perception
+
+
+    Perception of a regular beat in music is inferred from different types of accents. For example, increases in loudness cause intensity accents, and the grouping of time intervals in a rhythm creates temporal accents. Accents are expected to occur on the beat: when accents are "missing" on the beat, the beat is more difficult to perceive. However, it is unclear whether the accents occurring off the beat alter beat perception similarly to missing accents on the beat. Moreover, no one has examined whether intensity accents influence beat perception in the same way as temporal accents, nor how musical expertise affects sensitivity to each type of accent. In two experiments, we measured complexity ratings for rhythms, with both temporal and intensity accents, that varied in the number of missing accents on the beat and the number of accents off the beat. In both experiments, musical expertise increased sensitivity to missing accents on the beat. In addition, listeners were more sensitive to
+    missing accents on the beat for temporally-accented rhythms than intensity-accented rhythms. The effect of accents off the beat was weak and depended on both musical expertise and missing accents on the beat: lots of missing accents on the beat made beat perception very difficult, thus adding accents off the beat did not reduce beat perception further. Overall, the different types of accents were processed qualitatively differently, depending on musical expertise. These findings indicate the importance of designing ecologically valid stimuli for musical novices when testing beat perception. Full article
+
+
+    Submitted for publication. Sound examples:
+
+
+    Intensity rhythm 1
+
+
+    Temporal rhythm 1
+
+
+    Intensity rhythm 2
+
+
+    Temporal rhythm 2
+
+
+    Intensity rhythm 3
+
+
+    Temporal rhythm 3
+
+
+    Intensity rhythm 4
+
+
+    Temporal rhythm 4
+
+
+    Intensity rhythm 5
+
+
+    Temporal rhythm 5
+
+
+    Intensity rhythm 6
+
+
+    Temporal rhythm 6
+
+
+    Intensity rhythm 7
+
+
+    Temporal rhythm 7
+
+
+    Intensity rhythm 8
+
+
+    Temporal rhythm 8
+
+
+    Intensity rhythm 9
+
+
+    Temporal rhythm 9
+
+
+    Intensity rhythm 10
+
+
+    Temporal rhythm 10'
+- date: '2015-08-11'
+  kind: media
+  title: Item about beat perception in RTL Editie NL
+  text: Following the release of the Clapping Music App, which was designed by researchers from Queen Mary University in London, I was asked to appear in RTL Editie NL to talk about beat perception.
+  old_slug: item-about-beat-perception-in-rtl-editie-nl
+  link: http://www.rtlnieuws.nl/editienl/klapp-eens-je-handjes
+  link_label: Watch the item (RTL)
+- date: '2015-07-29'
+  kind: paper
+  title: 'Paper out in Frontiers in Psychology: temporal attending and prediction'
+  project: rhythm
+  text: ''
+  slug: f-l-bouwer-h-honing-2015-temporal-attending-and-prediction-influence-the-perception-of-metrical-rhythm-evidence-from-reaction-times-and-erps
+  body: 'F.L. Bouwer & H. Honing (2015). Temporal attending and prediction influence the perception of metrical rhythm: evidence from reaction times and ERPs.
+
+
+    The processing of rhythmic events in music is influenced by the induced metrical structure. Two mechanisms underlying this may be temporal attending and temporal prediction. Temporal fluctuations in attentional resources may influence the processing of rhythmic events by heightening sensitivity at metrically strong positions. Temporal predictions may attenuate responses to events that are highly expected within a metrical structure. In the current study we aimed to disentangle these two mechanisms by examining responses to unexpected sounds, using intensity increments and decrements as deviants. Temporal attending was hypothesized to lead to better detection of deviants in metrically strong (on the beat) than weak (offbeat) positions due to heightened sensitivity on the beat. Temporal prediction was hypothesized to lead to best detection of increments in offbeat positions and decrements on the beat, as they would be most unexpected in these positions. We used a speeded detection task
+    to measure detectability of the deviants under attended conditions (Experiment 1). Under unattended conditions (Experiment 2), we used EEG to measure the mismatch negativity (MMN), an ERP component known to index the detectability of unexpected auditory events. Furthermore, we examined the amplitude of the auditory evoked P1 and N1 responses, which are known to be sensitive to both attention and prediction. We found better detection of small increments in offbeat positions than on the beat, consistent with the influence of temporal prediction (Experiment 1). In addition, we found faster detection of large increments on the beat as opposed to offbeat (Experiment 1), and larger amplitude P1 responses on the beat as compared to offbeat, both in support of temporal attending (Experiment 2). As such, we showed that both temporal attending and temporal prediction shape our processing of metrical rhythm. Full article
+
+
+    Published in Frontiers in Psychology. Sound example'
+  link: https://doi.org/10.3389/fpsyg.2015.01094
+  link_label: Read the paper
+- date: '2014-10-10'
+  kind: paper
+  title: 'Chapter published by Springer: measuring beat perception with ERPs'
+  project: rhythm
+  text: ''
+  slug: honing-h-bouwer-f-l-haden-g-f-2014-perceiving-temporal-regularity-in-music-the-role-of-auditory-event-related-potentials-erps-in-probing-beat-perception
+  body: 'Honing, H., Bouwer, F. L., & Háden, G. F. (2014). Perceiving temporal regularity in music: The role of auditory event-related potentials (ERPs) in probing beat perception.
+
+
+    The aim of this chapter is to give an overview of how the perception of a regular beat in music can be studied in humans adults, human newborns, and nonhuman primates using event-related brain potentials (ERPs). Next to a review of the recent literature on the perception of temporal regularity in music, we will discuss in how far ERPs, and especially the component called mismatch negativity (MMN), can be instrumental in probing beat perception. We conclude with a discussion on the pitfalls and prospects of using ERPs to probe the perception of a regular beat, in which we present possible constraints on stimulus design and discuss future perspectives. Full chapter
+
+
+    Published by Springer'
+  link: https://doi.org/10.1007/978-1-4939-1782-2_16
+  link_label: Read the chapter
+- date: '2014-05-28'
+  kind: paper
+  title: 'Paper out in PLOS ONE: beat perception without attention'
+  project: rhythm
+  text: ''
+  slug: bouwer-f-l-van-zuijen-t-l-honing-h-2014-beat-processing-is-pre-attentive-for-metrically-simple-rhythms-with-clear-accents-an-erp-study
+  body: 'Bouwer F. L., Van Zuijen, T. L., Honing, H. (2014). Beat processing is pre-attentive for metrically simple rhythms with clear accents: An ERP study.
+
+
+    The perception of a regular beat is fundamental to music processing. Here we examine whether the detection of a regular beat is pre-attentive for metrically simple, acoustically varying stimuli using the mismatch negativity (MMN), an ERP response elicited by violations of acoustic regularity irrespective of whether subjects are attending to the stimuli. Both musicians and non-musicians were presented with a varying rhythm with a clear accent structure in which occasionally a sound was omitted. We compared the MMN response to the omission of identical sounds in different metrical positions. Most importantly, we found that omissions in strong metrical positions, on the beat, elicited higher amplitude MMN responses than omissions in weak metrical positions, not on the beat. This suggests that the detection of a beat is pre-attentive when highly beat inducing stimuli are used. No effects of musical expertise were found. Our results suggest that for metrically simple rhythms with clear accents
+    beat processing does not require attention or musical expertise. In addition, we discuss how the use of acoustically varying stimuli may influence ERP results when studying beat processing. Full paper
+
+
+    Published in PLOS ONE Sound example'
+  link: https://doi.org/10.1371/journal.pone.0097467
+  link_label: Read the paper
+- date: '2013-04-13'
+  kind: media
+  title: NCRV Cappuccino!
+  text: I appeared in the NCRV radio show Cappuccino to talk about music and the brain (in Dutch).
+  old_slug: nederlands-ncrv-cappuccino
+- date: '2013-03-20'
+  kind: media
+  title: Interview in Folia Magazine
+  text: On March 20, Folia Magazine published a short portrait on me in "Folia maakt kennis".
+  slug: nederlands-interview-in-folia-magazine
+  body: On March 20, Folia Magazine published a short portrait on me in "Folia maakt kennis".
+  more_links:
+  - label: Read the portrait (PDF, in Dutch)
+    url: static/news/2013-folia-magazine-interview.pdf
+- date: '2013-02-02'
+  kind: music
+  title: Finzi
+  text: In February I performed Finzi's Clarinet Concerto with string orchestra Byreine led by Joan Berkhemer. Below a small impression (filmed from the audience with a phone).
+  slug: finzi
+  body: 'In February I performed Finzi''s Clarinet Concerto with string orchestra Byreine led by Joan Berkhemer. Below a small impression (filmed from the audience with a phone).
+
+
+    Finzi klarinetconcert from Fleur Bouwer on Vimeo.'
+  link: https://vimeo.com/63930811
+  link_label: Watch on Vimeo

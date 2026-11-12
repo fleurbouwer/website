@@ -22,28 +22,18 @@ PREVIEW = "--preview" in sys.argv
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
-KINDS = {"book": "Book", "paper": "Paper", "grant": "Grant", "media": "Media", "outreach": "Outreach", "lab": "Lab"}
-KINDS_NL = {"book": "Boek", "paper": "Artikel", "grant": "Beurs", "media": "Media", "outreach": "Publieksactiviteit", "lab": "Lab"}
+KINDS = {"book": "Book", "paper": "Paper", "grant": "Grant", "media": "Media", "outreach": "Outreach", "talk": "Talk", "lab": "Lab", "music": "Music"}
+KINDS_NL = {"talk": "Lezing", "music": "Muziek", "book": "Boek", "paper": "Artikel", "grant": "Beurs", "media": "Media", "outreach": "Publieksactiviteit", "lab": "Lab"}
 MONTHS_NL = ["januari", "februari", "maart", "april", "mei", "juni", "juli",
              "augustus", "september", "oktober", "november", "december"]
 
 # Old WordPress addresses that should keep working.
+# Old WordPress addresses that should keep working (old news posts are added automatically).
 REDIRECTS = {
     "about-fleur/": "team/",
     "latest/": "news/",
     "media/": "news/#media",
-    "new-paper-in-cognition-modelling-processing-of-rhythmic-patterns/": "news/",
-    "new-paper-do-musicians-have-better-short-term-memory-than-nonmusicians-a-multilab-study/": "news/",
-    "new-paper-eeg-responses-to-rhythm-at-different-tempi/": "news/",
-    "waarom-tellen-dansers-af-met-5678/": "news/",
-    "nemo-blijf-nieuwsgierig/": "news/",
-    "3-october-university/": "news/",
-    "waarom-lijken-veel-liedjes-zo-op-elkaar/": "news/",
-    "snaartjes-festival-2024/": "news/",
-    "waarom-zijn-meau-en-flemming-zo-populair-bij-kinderen/": "news/",
-    "launch-of-toontjehoger/": "outreach/",
-    "item-on-amsterdam-dance-event-in-atlas-tv/": "news/",
-    "nemo-childrens-lecture/": "news/",
+    "publications/": None,  # same address on the new site
 }
 
 
@@ -71,6 +61,17 @@ def month(d, lang="en"):
     return f"{names[d.month - 1]} {d.year}"
 
 
+def summary(text, limit=240):
+    """First sentence(s) of a text, up to about `limit` characters."""
+    if not text or len(text) <= limit:
+        return text
+    cut = text[:limit]
+    end = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
+    if end > 80:
+        return cut[:end + 1]
+    return cut[:cut.rfind(" ")] + "…"
+
+
 def main():
     site = load("site")
     projects = load("projects")
@@ -87,7 +88,20 @@ def main():
         pr["people"] = [p for p in everyone if pr["id"] in p.get("projects", [])]
         pr["paragraphs"] = [x.strip() for x in pr["text"].strip().split("\n\n")]
 
+    for n in news:
+        if n.get("body"):
+            n["paragraphs"] = [x.strip() for x in n["body"].strip().split("\n\n")]
+        if n.get("slug"):
+            REDIRECTS[n["slug"] + "/"] = "news/" + n["slug"] + "/"
+        elif n.get("old_slug"):
+            REDIRECTS[n["old_slug"] + "/"] = "news/"
     pinned = [n for n in news if n.get("pinned")]
+    news_by_year = []
+    for n in [n for n in news if not n.get("pinned")]:
+        y = str(n["date"])[:4]
+        if not news_by_year or news_by_year[-1][0] != y:
+            news_by_year.append((y, []))
+        news_by_year[-1][1].append(n)
     latest = [n for n in news if not n.get("pinned")]
 
     years = sorted({p["year"] for p in pubs}, reverse=True)
@@ -117,6 +131,7 @@ def main():
                       autoescape=select_autoescape(["html"]), trim_blocks=True, lstrip_blocks=True)
     env.filters["boldme"] = boldme
     env.filters["month"] = month
+    env.filters["summary"] = summary
 
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -124,7 +139,7 @@ def main():
     shutil.copytree(ROOT / "static", OUT / "static")
 
     common = dict(site=site, projects=projects, projects_by_id=projects_by_id, pubs=pubs, pubs_by_year=pubs_by_year,
-                  news=news, pinned=pinned, latest=latest, team=team, outreach=outreach, tiles=tiles,
+                  news=news, pinned=pinned, latest=latest, news_by_year=news_by_year, team=team, outreach=outreach, tiles=tiles,
                   kinds=KINDS, kinds_nl=KINDS_NL)
 
     def render(template, path, **ctx):
@@ -156,6 +171,10 @@ def main():
     render("publications.html", "publications/index.html", title="Publications", section="publications/")
     render("team.html", "team/index.html", title="Team", section="team/")
     render("news.html", "news/index.html", title="News and media", section="news/")
+    for n in news:
+        if n.get("slug"):
+            render("article.html", f"news/{n['slug']}/index.html", n=n, title=n["title"],
+                   description=n.get("text") or n["title"], section="news/", lang_item=n.get("lang"))
     render("outreach.html", "outreach/index.html", title="Outreach", section="outreach/")
     render("book.html", "book/index.html", title="What Is Music For?", section="book/",
            description="What Is Music For?, a popular science book by Fleur Bouwer (Bristol University Press, March 2027).")
@@ -165,6 +184,8 @@ def main():
     render("404.html", "404.html", title="Page not found")
 
     for old, new in REDIRECTS.items():
+        if new is None:
+            continue
         dest = OUT / old / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
         if PREVIEW:

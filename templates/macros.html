@@ -26,9 +26,10 @@
 {% macro news_item(n, u, show_text=True) -%}
 <article class="news-item" data-kind="{{ n.kind }}">
 <span class="label">{{ (kinds_nl if lang == 'nl' else kinds)[n.kind] }} · {{ n.date|month(lang) }}{% if n.lang == 'nl' and lang != 'nl' %}<span class="tag" lang="en" title="In Dutch">NL</span>{% endif %}</span>
-<h3>{% if n.link %}<a href="{{ n.link if n.link.startswith('http') else u(n.link) }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
-{% if show_text and n.text %}<p{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.text }}</p>{% endif %}
-{% if show_text and n.project %}<p class="chips"><a href="{{ u('research/' ~ n.project ~ '/') }}">{{ projects_by_id[n.project].title }}</a></p>{% endif %}
+{% set href = u('news/' ~ n.slug ~ '/') if n.slug else (n.link if n.link and n.link.startswith('http') else (u(n.link) if n.link else '')) %}
+<h3{% if n.lang == 'nl' %} lang="nl"{% endif %}>{% if href %}<a href="{{ href }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
+{% if show_text and n.text %}<p{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.text|summary }}{% if n.slug %} <a href="{{ href }}" aria-label="Read more: {{ n.title }}">{{ 'Lees meer' if n.lang == 'nl' else 'Read more' }}</a>{% endif %}</p>{% elif show_text and n.slug %}<p><a href="{{ href }}">{{ 'Lees meer' if n.lang == 'nl' else 'Read more' }}</a></p>{% endif %}
+{% if show_text and (n.project or (n.slug and n.link)) %}<p class="chips">{% if n.project %}<a href="{{ u('research/' ~ n.project ~ '/') }}">{{ projects_by_id[n.project].title }}</a>{% endif %}{% if n.slug and n.link %}<a href="{{ n.link }}">{{ n.link_label or 'Link' }}</a>{% endif %}</p>{% endif %}
 </article>
 {%- endmacro %}
 

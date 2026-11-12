@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% import "macros.html" as m with context %}
+{% block hero %}<section class="wrap page-hero"><a class="label" style="color:var(--amber)" href="{{ u('news/') }}">News · {{ kinds[n.kind] }} · {{ n.date|month }}</a><h1 style="font-size:clamp(36px,5vw,60px)"{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.title }}</h1></section>{% endblock %}
+{% block main %}
+<section class="section"><div class="wrap"><article class="prose"{% if n.lang == 'nl' %} lang="nl"{% endif %}>
+{% if n.image %}<img src="{{ u('static/news/' ~ n.image) }}" alt="" style="border-radius:16px;max-height:520px;width:auto">{% endif %}
+{% for para in n.paragraphs %}<p>{{ para }}</p>{% endfor %}
+{% if n.audio %}<audio controls preload="none" src="{{ u('static/news/' ~ n.audio) }}" style="width:100%"></audio>{% endif %}
+<p style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">{% if n.link %}<a class="btn btn-amber" href="{{ n.link }}">{{ n.link_label or 'Read more' }}</a>{% endif %}{% for l in n.more_links or [] %}<a class="btn btn-line" href="{{ l.url if l.url.startswith('http') else u(l.url) }}">{{ l.label }}</a>{% endfor %}</p>
+{% if n.project %}<p class="chips"><a href="{{ u('research/' ~ n.project ~ '/') }}">{{ projects_by_id[n.project].title }}</a></p>{% endif %}
+<p><a class="more" href="{{ u('news/') }}">All news and media</a></p>
+</article></div></section>
+{% endblock %}
