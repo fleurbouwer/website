@@ -1,12 +1,12 @@
 {% extends "base.html" %}{% import "macros.html" as m with context %}
-{% block hero %}<section class="wrap page-hero"><h1>Research</h1><p class="lead">Four themes, each fed by several projects and grants. Every theme page lists its projects, the people involved and the publications so far.</p></section>{% endblock %}
+{% block hero %}<section class="wrap page-hero"><h1>Projects</h1><p class="lead">Four long-running lines of research. Each brings together grants, student projects and collaborations, and lists the people and publications involved.</p></section>{% endblock %}
 {% block main %}
 <section class="section"><div class="wrap"><div class="cards">
-{% for t in themes %}<a class="card" href="{{ u('research/' ~ t.id ~ '/') }}"><div class="art">{{ m.art(t.art) }}</div><span class="label">{{ t.pubs|length }} publication{{ 's' if t.pubs|length != 1 }} · {{ t.projects|length }} project{{ 's' if t.projects|length != 1 }}</span><h3>{{ t.title }}</h3><p>{{ t.short }}</p></a>
+{% for t in projects %}<a class="card" href="{{ u('research/' ~ t.id ~ '/') }}"><div class="art">{{ m.art(t.art) }}</div><h3>{{ t.title }}</h3><p>{{ t.short }}</p></a>
 {% endfor %}
 </div></div></section>
-<section class="section white"><div class="wrap prose">
-<h2>Methods</h2>
-<p>We use behavioural experiments, computational models, physiological recordings, EEG and fMRI, the latter with the 3T scanner at the <a href="https://www.universiteitleiden.nl/sociale-wetenschappen/libc">Leiden Institute for Brain and Cognition (LIBC)</a>. We share data and code openly where we can.</p>
-</div></section>
+<section class="section white"><div class="wrap"><div class="prose">
+<h2>How we work</h2>
+<p>We use behavioural experiments, computational models, physiological recordings, EEG and fMRI, at the Leiden Institute for Brain and Cognition. Where we can, we preregister our studies and share data and code openly.</p>
+</div></div></section>
 {% endblock %}

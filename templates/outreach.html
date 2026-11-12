@@ -1,11 +1,10 @@
 {% extends "base.html" %}{% import "macros.html" as m with context %}
-{% block hero %}<section class="wrap page-hero"><h1>Outreach and teaching</h1><p class="lead">Science is more fun when it is shared. Games, a festival, lectures and teaching.</p></section>{% endblock %}
+{% block hero %}<section class="wrap page-hero"><h1>Outreach</h1><p class="lead">Games, videos, a book, a festival and the occasional lecture: music science for everyone.</p></section>{% endblock %}
 {% block main %}
-<section class="section"><div class="wrap"><div class="projects">
-{% for o in outreach.projects %}<article class="project"><span class="label">{{ o.year }}</span><h3>{{ o.title }}</h3><p>{{ o.text }}</p><p><a href="{{ o.link.url }}">{{ o.link.label }}</a></p></article>{% endfor %}
+<section class="section"><div class="wrap"><div class="tiles">
+{% for t in tiles %}{{ m.tile(t, u) }}{% endfor %}
 </div></div></section>
-<section class="section white"><div class="wrap two-col">
-<div class="main prose"><h2>Public lectures</h2><p>{{ outreach.talks }}</p><p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
-<div class="side prose"><h2>Teaching</h2><p>{{ outreach.teaching }}</p></div>
-</div></section>
+<section class="section white"><div class="wrap"><div class="prose">
+<h2>Lectures</h2><p>{{ outreach.lectures }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</div></div></section>
 {% endblock %}

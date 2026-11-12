@@ -1,33 +1,57 @@
-# Outreach projects and the book.
+# Outreach tiles and the book.
+# featured: true makes a tile large and puts it first.
 
-projects:
+tiles:
   - title: "ToontjeHoger"
-    year: "2022"
-    text: "A website of short games that test your musicality (pitch, rhythm, timing and memory for music) and explain the science behind each one. Built with the Music Cognition Group at the University of Amsterdam, partly funded by the KNAW Gewaardeerd! programme."
-    text_nl: "Een website met korte spelletjes die je muzikaliteit testen, zoals toonhoogte, ritme, timing en muzikaal geheugen, en die na elk spel de wetenschap erachter uitleggen. Gemaakt met de muziekcognitiegroep van de Universiteit van Amsterdam, mede gefinancierd door het KNAW-programma Gewaardeerd!"
+    featured: true
+    kicker: "Online games · since 2022"
+    text: "How musical are you? Short games test your sense of pitch, rhythm, timing and memory for music, and after each game you find out what science says about it. Made with the Music Cognition Group at the University of Amsterdam, with a KNAW Gewaardeerd! grant."
+    text_nl: "Hoe muzikaal ben jij? Korte spelletjes testen je gevoel voor toonhoogte, ritme, timing en muzikaal geheugen, en na elk spel lees je wat de wetenschap erover weet. Gemaakt met de muziekcognitiegroep van de Universiteit van Amsterdam, met een KNAW Gewaardeerd!-beurs."
     link: {label: "Play ToontjeHoger", url: "https://toontjehoger.amsterdammusiclab.nl/toontjehoger"}
+    art: beat
   - title: "ToontjeHoger Kids"
-    year: "2024"
-    text: "The children's version: games for ages 8 and up that test musicality and show how your brain processes music."
-    text_nl: "De kinderversie: spelletjes voor kinderen vanaf 8 jaar die muzikaliteit testen en laten zien hoe je brein muziek verwerkt."
+    featured: true
+    kicker: "Online games for children · since 2024"
+    text: "The same idea for children aged 8 and up: playful tests of musicality that show how your brain handles music."
+    text_nl: "Hetzelfde idee voor kinderen vanaf 8 jaar: speelse tests van muzikaliteit die laten zien hoe je brein met muziek omgaat."
     link: {label: "Play ToontjeHoger Kids", url: "http://app.amsterdammusiclab.nl/collection/thkids"}
+    art: pairs
+  - title: "Why can’t your partner dance?"
+    kicker: "Universiteit van Nederland · video (NL)"
+    text: "A short, light-hearted lecture on rhythm: is a poor sense of rhythm the reason someone keeps stepping on your toes?"
+    text_nl: "Een kort college over ritmegevoel: komt het door slecht ritmegevoel dat iemand steeds op je tenen staat?"
+    link: {label: "Watch the lecture", url: "https://www.universiteitvannederland.nl/college/waarom-kan-jouw-partner-niet-dansen"}
+  - title: "What Is Music For?"
+    kicker: "Book · March 2027"
+    text: "My popular science book on music and the brain, for anyone who has ever wondered why we need music."
+    text_nl: "Mijn populairwetenschappelijke boek over muziek en het brein, voor iedereen die zich weleens afvroeg waarom we muziek nodig hebben."
+    link: {label: "About the book", url: "book/"}
+    internal: true
   - title: "Snaartjes"
-    year: "2024"
-    text: "An interactive festival about music and science for children aged 8 to 12, held at TivoliVredenburg in Utrecht on 15 June 2024. A collaboration between researchers and musicians, with Lara Wierenga, Henkjan Honing and Merel Vercammen, funded by an NWO science communication grant (Dutch Research Agenda)."
-    text_nl: "Een interactief festival over muziek en wetenschap voor kinderen van 8 tot 12 jaar, op 15 juni 2024 in TivoliVredenburg in Utrecht. Een samenwerking tussen onderzoekers en musici, met Lara Wierenga, Henkjan Honing en Merel Vercammen, gefinancierd met een NWO-beurs voor wetenschapscommunicatie (Nationale Wetenschapsagenda)."
+    kicker: "Festival for children · 2024"
+    text: "An interactive music and science festival for children aged 8 to 12 at TivoliVredenburg in Utrecht, made by researchers and musicians together, with an NWO science communication grant."
+    text_nl: "Een interactief festival over muziek en wetenschap voor kinderen van 8 tot 12 jaar in TivoliVredenburg in Utrecht, gemaakt door onderzoekers en musici samen, met een NWO-beurs voor wetenschapscommunicatie."
     link: {label: "About the grant", url: "https://www.universiteitleiden.nl/en/news/2023/11/four-projects-awarded-science-communication-grants"}
+  - title: "In the media"
+    kicker: "TV, radio, podcasts, newspapers"
+    text: "Atlas TV, RTL Editie NL, Focus, VPRO Nooit meer slapen, BNR Nieuwsradio, Hoe?Zo!, de Volkskrant, Quest, Kidsweek, NEMO and more."
+    text_nl: "Onder meer Atlas TV, RTL Editie NL, Focus, VPRO Nooit meer slapen, BNR Nieuwsradio, Hoe?Zo!, de Volkskrant, Quest, Kidsweek en NEMO."
+    link: {label: "Media appearances", url: "news/#media"}
+    internal: true
 
-talks: "I regularly give public lectures about music and the brain, from NEMO Science Museum and Paradiso to the Holland Festival. Between 2012 and 2015 I gave around 30 lecture recitals, combining clarinet performance with short interactive talks about music and the brain. To invite me for a talk, send me an email."
-talks_nl: "Ik geef regelmatig lezingen over muziek en het brein, van NEMO en Paradiso tot het Holland Festival. Tussen 2012 en 2015 gaf ik zo'n 30 lezingvoorstellingen waarin ik klarinet speelde en vertelde over muziek en het brein. Wilt u mij uitnodigen voor een lezing? Stuur me een e-mail."
-
-teaching: "I teach bachelor and master courses in the psychology programmes at Leiden University, including lectures on music and cognition and on cognitive enhancement, and I supervise master theses."
+lectures: "I regularly give public lectures about music and the brain. For enquiries, please email me."
+lectures_nl: "Ik geef regelmatig lezingen over muziek en het brein. Voor aanvragen kunt u mij mailen."
 
 book:
-  title: "[BOOK TITLE]"
-  subtitle: "[Subtitle]"
-  publisher: "[PUBLISHER]"
-  publisher_url: ""
-  date: "[Publication date]"
+  title: "What Is Music For?"
+  series: "What Is It For? series"
+  publisher: "Bristol University Press"
+  publisher_url: "https://bristoluniversitypress.co.uk/trade/what-is-music-for"
+  date: "March 2027"
+  details: "Paperback, 160 pages · ISBN 978-1-5292-5518-8 · also as ebook and audiobook"
   cover: ""
-  text: "A popular science book about music psychology and the brain: where our musicality comes from, what happens in the brain when we listen and play, who music is for, and how music helps us think, feel, move and bond."
-  text_nl: "Een populairwetenschappelijk boek over muziekpsychologie en het brein: waar onze muzikaliteit vandaan komt, wat er in het brein gebeurt als we luisteren en spelen, voor wie muziek is, en hoe muziek ons helpt denken, voelen, bewegen en verbinden."
+  text: |
+    Why do we love music so much, when it is just vibrating air? Why does it accompany every wedding, funeral and party, and why do certain chords make us feel a certain way?
+
+    In this short book for everyone, I draw on my years as a professional clarinettist and as a cognitive neuroscientist to explain what we know about music and the brain: how we make music without being taught, how it moves us, and what it does for our feelings, our bodies and our relationships. Along the way I take a critical look at some popular myths about music's magical effects.
+  text_nl: "Waarom houden we zo veel van muziek, terwijl het alleen maar trillende lucht is? In dit korte boek voor iedereen leg ik uit wat we weten over muziek en het brein, en prik ik een paar populaire mythes door. Het boek verschijnt in maart 2027 in het Engels bij Bristol University Press."

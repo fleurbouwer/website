@@ -11,18 +11,19 @@
 </div></section>
 {% endblock %}
 {% block main %}
+<section class="section white"><div class="wrap">{% for n in pinned %}{{ m.pinned_item(n, u) }}{% endfor %}</div></section>
 <section class="section"><div class="wrap">
 <div class="section-head"><h2>Waar we aan werken</h2></div>
-<div class="cards">{% for t in themes %}<a class="card" href="{{ u('research/' ~ t.id ~ '/') }}" hreflang="en"><div class="art">{{ m.art(t.art) }}</div><h3>{{ t.title_nl }}</h3><p>{{ t.short_nl }}</p></a>{% endfor %}</div>
+<div class="cards">{% for t in projects %}<a class="card" href="{{ u('research/' ~ t.id ~ '/') }}" hreflang="en"><div class="art">{{ m.art(t.art) }}</div><h3>{{ t.title_nl }}</h3><p>{{ t.short_nl }}</p></a>{% endfor %}</div>
 <p class="muted" style="margin-top:20px;font-size:15px">De projectpagina's zijn in het Engels.</p>
 </div></section>
 <section class="section white"><div class="wrap two-col">
 <div class="main"><div class="section-head"><h2>In de media</h2></div>
-<div class="news">{% for n in news if n.lang == 'nl' %}{{ m.news_item(n, u, themes_by_id) }}{% endfor %}</div></div>
-<div class="side prose"><h2>Lezingen</h2><p>{{ outreach.talks_nl }}</p><p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
+<div class="news">{% for n in news if n.lang == 'nl' %}{{ m.news_item(n, u) }}{% endfor %}</div></div>
+<div class="side prose"><h2>Lezingen</h2><p>{{ outreach.lectures_nl }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
 </div></section>
-<section class="section"><div class="wrap"><div class="section-head"><h2>Voor iedereen</h2></div><div class="projects">
-{% for o in outreach.projects %}<article class="project"><h3>{{ o.title }}</h3><p>{{ o.text_nl }}</p><p><a href="{{ o.link.url }}">{{ o.title }}</a></p></article>{% endfor %}
-<article class="project"><h3>Het boek</h3><p>{{ outreach.book.text_nl }}</p><p><a href="{{ u('book/') }}">Over het boek</a></p></article>
-</div></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><h2>Voor iedereen</h2></div>
+<div class="tiles">{% for t in tiles %}{{ m.tile(t, u) }}{% endfor %}</div>
+<p class="muted" style="margin-top:20px;font-size:15px">Het boek: {{ outreach.book.text_nl }}</p>
+</div></section>
 {% endblock %}

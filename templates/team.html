@@ -10,13 +10,13 @@
 <div class="section-head"><h2>Team</h2></div>
 <div class="team-grid">
 {% for p in team.current[1:] %}<article class="member">{{ m.avatar(p, u) }}<div><div class="person"><div><div class="name">{{ p.name }}</div><div class="role">{{ p.role }}</div></div></div></div><p>{{ p.bio }}</p>
-<div class="chips">{% for tid in p.themes %}<a href="{{ u('research/' ~ tid ~ '/') }}">{{ themes_by_id[tid].title }}</a>{% endfor %}</div>
+<div class="chips">{% for tid in p.projects %}<a href="{{ u('research/' ~ tid ~ '/') }}">{{ projects_by_id[tid].title }}</a>{% endfor %}</div>
 {% if p.link %}<p><a href="{{ p.link.url }}">{{ p.link.label }}</a></p>{% endif %}</article>{% endfor %}
 </div></div></section>
 <section class="section"><div class="wrap">
 <div class="section-head"><h2>Alumni</h2></div>
 <div class="team-grid">
-{% for p in team.alumni %}<article class="member"><div class="name" style="font-family:var(--head);font-weight:600;font-size:18px">{{ p.name }}</div><p class="muted">{{ p.role }}, {{ p.project }}</p><div class="chips">{% for tid in p.themes %}<a href="{{ u('research/' ~ tid ~ '/') }}">{{ themes_by_id[tid].title }}</a>{% endfor %}</div></article>{% endfor %}
+{% for p in team.alumni %}<article class="member"><div class="name" style="font-family:var(--head);font-weight:600;font-size:18px">{{ p.name }}</div><p class="muted">{{ p.role }}{% if p.years %}, {{ p.years }}{% endif %}</p><div class="chips">{% for tid in p.projects %}<a href="{{ u('research/' ~ tid ~ '/') }}">{{ projects_by_id[tid].title }}</a>{% endfor %}</div></article>{% endfor %}
 </div>
 {% if team.students %}<h3 style="margin:40px 0 16px">Selected master students</h3><ul>{% for s in team.students %}<li>{{ s.name }} ({{ s.year }}): {{ s.thesis }}{% if s.note %}, {{ s.note }}{% endif %}</li>{% endfor %}</ul>{% endif %}
 </div></section>

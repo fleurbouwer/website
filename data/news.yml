@@ -2,34 +2,63 @@
 # kind: paper | grant | media | outreach | lab
 # lang: nl for Dutch-language items (shown with an NL label and on the Dutch page)
 # link: where the item points (article, podcast, paper). Optional.
+# pinned: true keeps an item at the top of the home page and the news page.
+
+- date: 2026-11-12
+  kind: book
+  pinned: true
+  title: "My book What Is Music For? comes out in March 2027"
+  text: "Why do we love music so much, when it is just vibrating air? In this short book for everyone, part of the What Is It For? series by Bristol University Press, I explain what science tells us about music and the brain, and debunk a few myths along the way. It can be pre-ordered now."
+  link: "https://bristoluniversitypress.co.uk/trade/what-is-music-for"
+
+- date: "2026"
+  kind: paper
+  title: "New paper in Journal of Alzheimer’s Disease: singing versus conversation in dementia"
+  text: "Led by Dewi Boessen and Marijn Hendricksen, our pilot study in a nursing home compared singing sessions with conversation sessions, to separate the effect of music from that of company and attention."
+  link: "https://doi.org/10.1177/13872877261485601"
+  project: health
+
+- date: "2026"
+  kind: paper
+  title: "Music Ensemble: an open dataset on musicians and nonmusicians"
+  text: "The ManyMusicians network shares its data on musicianship, cognition and personality from labs around the world, in Scientific Data."
+  link: "https://doi.org/10.1038/s41597-026-06654-0"
+  project: learning
+
+- date: "2025-12"
+  kind: paper
+  title: "New paper in PLOS Computational Biology: modelling rhythmic expectations"
+  text: "Led by Atser Damsma, experts from seven universities who disagree about how to model rhythm wrote a joint perspective, with concrete recommendations for the field."
+  link: "https://doi.org/10.1371/journal.pcbi.1013798"
+  project: rhythm
 
 - date: 2025-12-17
   kind: grant
   title: "Open Science NL funds our replication study on music lessons and IQ"
   text: "Do music lessons really make children smarter? With Marieke Bos, we will repeat a famous 2004 study with 312 children, and look beyond IQ at attention, wellbeing and social behaviour."
   link: "https://www.openscience.nl/en/news/27-studies-re-examined"
-  theme: learning
+  project: learning
 
 - date: 2025-11-26
   kind: paper
   title: "New paper in Cognition: modelling how we process rhythmic patterns"
   text: "Using a probabilistic computer model of temporal structure, we show that abstract representations underlie how people perceive and produce rhythms."
   link: "https://doi.org/10.1016/j.cognition.2025.106345"
-  theme: rhythm
+  project: rhythm
 
 - date: 2025-11-06
   kind: paper
   title: "Do musicians have better short-term memory than nonmusicians? A multilab study"
   text: "A large international team tested the claim with the same tasks in many labs."
   link: "https://doi.org/10.1177/25152459251379432"
-  theme: learning
+  project: learning
 
 - date: 2025-09-26
   kind: paper
   title: "New paper in Cerebral Cortex: brain responses to rhythm at different tempi"
   text: "With Atser Damsma and colleagues we show that tempo-dependent EEG responses at the beat can be mimicked by both an oscillator and an evoked model."
   link: "https://doi.org/10.1093/cercor/bhaf258"
-  theme: rhythm
+  project: rhythm
 
 - date: 2025-09-01
   kind: media
@@ -55,7 +84,7 @@
   title: "NWO grant for Tuning in together"
   text: "An NWO Open Competition XS grant lets us study whether listening to music together makes people cooperate."
   link: "https://www.universiteitleiden.nl/en/news/2024/11/grants-awarded-for-five-innovative-psychology-research-projects"
-  theme: connection
+  project: connection
 
 - date: 2024-10-04
   kind: outreach

@@ -7,7 +7,7 @@
 <h1>{{ site.hero_title }}</h1>
 <p class="lead">{{ site.hero_text }}</p>
 <p class="who">Dr Fleur Bouwer · {{ site.tagline }}, Leiden University</p>
-<p><a class="btn btn-amber" href="{{ u('research/') }}">Explore the research</a></p>
+<p><a class="btn btn-amber" href="{{ u('research/') }}">Explore the projects</a></p>
 </div>
 <figure class="hero-img" style="margin:0">
 <img src="{{ u('static/img/fleur-on-stage-1600.jpg') }}" srcset="{{ u('static/img/fleur-on-stage-900.jpg') }} 900w, {{ u('static/img/fleur-on-stage-1600.jpg') }} 1600w" sizes="(max-width: 800px) 100vw, 460px" alt="Fleur on stage with two metronomes on a table, in front of an audience, with brain illustrations on screens behind her" width="1600" height="1068">
@@ -16,11 +16,18 @@
 </section>
 {% endblock %}
 {% block main %}
+<section class="section white">
+<div class="wrap">
+<div class="section-head"><h2>Latest news</h2><a class="more" href="{{ u('news/') }}">All news and media</a></div>
+{% for n in pinned %}{{ m.pinned_item(n, u) }}{% endfor %}
+<div class="news-grid">{% for n in latest[:3] %}{{ m.news_item(n, u, show_text=False) }}{% endfor %}</div>
+</div>
+</section>
 <section class="section">
 <div class="wrap">
-<div class="section-head"><h2>What we work on</h2><a class="more" href="{{ u('research/') }}">All research</a></div>
+<div class="section-head"><h2>Projects</h2><a class="more" href="{{ u('research/') }}">All projects</a></div>
 <div class="cards">
-{% for t in themes %}<a class="card" href="{{ u('research/' ~ t.id ~ '/') }}"><div class="art">{{ m.art(t.art) }}</div><span class="label">{{ t.projects|length }} project{{ 's' if t.projects|length != 1 }}</span><h3>{{ t.title }}</h3><p>{{ t.short }}</p></a>
+{% for t in projects %}<a class="card" href="{{ u('research/' ~ t.id ~ '/') }}"><div class="art">{{ m.art(t.art) }}</div><h3>{{ t.title }}</h3><p>{{ t.short }}</p></a>
 {% endfor %}
 </div>
 </div>
@@ -28,8 +35,8 @@
 <section class="section white">
 <div class="wrap two-col">
 <div class="main">
-<div class="section-head"><h2>Latest</h2><a class="more" href="{{ u('news/') }}">All news and media</a></div>
-<div class="news">{% for n in news[:3] %}{{ m.news_item(n, u, themes_by_id, show_text=False) }}{% endfor %}</div>
+<div class="section-head"><h2>Outreach</h2><a class="more" href="{{ u('outreach/') }}">All outreach</a></div>
+<div class="tiles">{% for t in tiles[:2] %}{{ m.tile(t, u) }}{% endfor %}</div>
 </div>
 <div class="side">
 <div class="section-head"><h2>Who we are</h2></div>
@@ -39,12 +46,6 @@
 <a class="more" href="{{ u('team/') }}">Team and alumni</a>
 </div>
 </div>
-</div>
-</section>
-<section class="section">
-<div class="wrap two-col">
-<div class="main"><div class="section-head"><h2>The book</h2></div><p class="muted" style="max-width:600px">{{ outreach.book.text }}</p><p style="margin-top:20px"><a class="btn btn-line" href="{{ u('book/') }}">About the book</a></p></div>
-<div class="side"><div class="section-head"><h2>Outreach</h2></div><p class="muted">ToontjeHoger, ToontjeHoger Kids, the Snaartjes festival and public lectures.</p><p style="margin-top:20px"><a class="btn btn-line" href="{{ u('outreach/') }}">Outreach and teaching</a></p></div>
 </div>
 </section>
 {% endblock %}

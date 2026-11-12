@@ -1,0 +1,67 @@
+# Research projects (long-running lines of work).
+# A project can be fed by several grants, by student projects, or by collaborations.
+# People and publications link to a project by its id.
+# funding: list of {name, years}; shown as a simple list, not tied to specific studies.
+
+- id: rhythm
+  title: "Rhythm and the predicting brain"
+  short: "How the brain finds the beat, and why we differ in our sense of rhythm."
+  title_nl: "Ritme en het voorspellende brein"
+  short_nl: "Hoe ons brein de maat vindt, en waarom de een meer ritmegevoel heeft dan de ander."
+  art: beat
+  text: |
+    When we listen to music, our brain constantly predicts when the next sound will arrive. Those predictions let us tap our foot, dance with others and enjoy a good groove. We can make them in two ways: by locking on to a regular beat, or by learning a rhythmic pattern that repeats. This project asks how these two kinds of prediction work, whether they rely on different systems in the brain, and why some people find the beat more easily than others.
+
+    We have shown that people can pick up a beat without musical training and even without paying attention, especially in rich, music-like sounds. EEG studies showed that predictions based on a beat and on a pattern look alike in behaviour but work differently in the brain, and leave different traces once the rhythm stops. Together with colleagues we have also studied beat perception in newborn babies and in monkeys.
+
+    Today we combine computational models of rhythm with behaviour, EEG and fMRI, in healthy listeners and in people with Parkinson's disease, and we have tested rhythmic abilities online in large groups of people together with the Amsterdam Music Lab.
+  funding:
+    - {name: "Amsterdam Brain and Cognition (ABC) Talent Grant", years: "2017–2019"}
+    - {name: "NWO Veni", years: "from 2021"}
+    - {name: "ABC Project Grant, with Henkjan Honing and Pierre-Louis Bazin", years: "2021–2023"}
+  collaborators: "Henkjan Honing, Heleen Slagter, Pierre-Louis Bazin, Jessica Grahn (Western University), Edward Large (University of Connecticut), Marcus Pearce (Queen Mary University of London)"
+
+- id: learning
+  title: "Does music make us smarter?"
+  short: "Testing popular claims about music lessons, musicians and the mind."
+  title_nl: "Word je slimmer van muziek?"
+  short_nl: "We toetsen populaire claims over muziekles, musici en denkvermogen."
+  art: steps
+  text: |
+    Parents, schools and policymakers often hear that music lessons boost children's brain development, and that musicians have better memories than other people. Much of that belief rests on a handful of studies, some of them small. In this project we put these claims to careful, open tests.
+
+    With the international ManyMusicians network, led by Massimo Grassi and Francesca Talamini, we tested in many labs at once whether musicians really have better short-term memory than nonmusicians, and shared the resulting dataset on musicianship, cognition and personality with everyone.
+
+    In Leiden, together with Marieke Bos, we are repeating a famous 2004 study which found that children's IQ rose more after a year of music lessons. Over 300 six-year-olds at after-school care get a year of weekly recorder or singing lessons, drama lessons, or join a waitlist. Besides IQ we measure attention and self-control, musicality, wellbeing and social behaviour. The study plan is peer-reviewed and published before any data come in.
+  funding:
+    - {name: "Open Science NL (NWO), Replication Studies", years: "from 2025"}
+  collaborators: "Marieke Bos (Leiden University), ManyMusicians network; partners Opstoom, Leerorkest Nederland and Hart Haarlem"
+
+- id: connection
+  title: "Music and social connection"
+  short: "Does sharing music bring people closer, through bodies in sync?"
+  title_nl: "Muziek en verbinding"
+  short_nl: "Brengt samen muziek beleven mensen dichter bij elkaar?"
+  art: pairs
+  text: |
+    Throughout human history, making music together has helped people connect and cooperate. When people move to the same rhythm, they often feel closer and are more willing to help each other. But what is the active ingredient: the music itself, the pleasure it brings, or the fact that people fall into sync?
+
+    We study whether simply listening to music together promotes cooperation, and whether that works through the body: listeners' heart rate and skin conductance starting to move in step. Pairs of participants listen to music either perfectly in sync or slightly apart, while we record their physiology and they play a game in which they can choose to cooperate. We also look at how rhythm, synchrony and reward are linked, and how rhythmic abilities compare across humans and other animals.
+  funding:
+    - {name: "NWO Open Competition XS", years: "2025"}
+  collaborators: ""
+
+- id: health
+  title: "Music for health"
+  short: "Can music improve daily life in dementia and Parkinson’s disease?"
+  title_nl: "Muziek en gezondheid"
+  short_nl: "Kan muziek het leven met dementie of Parkinson verbeteren?"
+  art: wave
+  text: |
+    Musical abilities often survive long after other skills fade, and a rhythmic cue can help people with Parkinson's disease to walk. Music is widely recommended in care, but the evidence is often thin. Is it really the music that helps, and does it help everyone?
+
+    In a nursing home in Amsterdam we compared improvised singing sessions with the same sessions in which the singers talked instead of sang, so we could separate the effect of music from the effect of attention and company. We also study how people with Parkinson's disease predict rhythm, with the aim of tailoring rhythm-based therapy to the individual.
+  funding:
+    - {name: "UvA Psychology Impact Grant", years: "2023"}
+    - {name: "Distinguished Women Scientists Fund (travel grant, Parkinson's research in Canada)", years: "2017"}
+  collaborators: "Esmee Verwijk, Jenny van der Steen, Thomas Johannsen (Genetic Choir); Stichting Here&Now, Zorggroep Amsterdam Oost, Ben Sajet Centrum"

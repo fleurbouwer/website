@@ -6,13 +6,14 @@
 <button type="button" data-filter="all" aria-pressed="true">All</button>
 {% for k, label in kinds.items() %}<button type="button" data-filter="{{ k }}" aria-pressed="false" id="{{ k }}">{{ label }}</button>{% endfor %}
 </div>
-<div class="news">{% for n in news %}{{ m.news_item(n, u, themes_by_id) }}{% endfor %}</div>
+{% for n in pinned %}{{ m.pinned_item(n, u) }}{% endfor %}
+<div class="news">{% for n in latest %}{{ m.news_item(n, u) }}{% endfor %}</div>
 </div></section>
 {% endblock %}
 {% block scripts %}<script>
 (function(){var g=document.querySelector('.filters');if(!g)return;g.hidden=false;
 function set(f){g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.filter===f)});
-document.querySelectorAll('.news-item').forEach(function(a){a.hidden=f!=='all'&&a.dataset.kind!==f});}
+document.querySelectorAll('.news-item,.pinned').forEach(function(a){a.hidden=f!=='all'&&a.dataset.kind!==f});}
 g.addEventListener('click',function(e){var b=e.target.closest('button');if(b)set(b.dataset.filter)});
 var h=location.hash.slice(1);if(h&&g.querySelector('[data-filter="'+h+'"]'))set(h);})();
 </script>{% endblock %}

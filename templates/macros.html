@@ -23,18 +23,41 @@
 {% if p.photo %}<img class="{{ cls }}" src="{{ p.photo if p.photo.startswith('http') else u('static/img/' ~ p.photo) }}" alt="{{ p.name }}" width="120" height="120" loading="lazy">{% else %}<span class="{{ cls }}" aria-hidden="true">{{ p.name.split()[0][0] }}{{ p.name.split()[-1][0] }}</span>{% endif %}
 {%- endmacro %}
 
-{% macro news_item(n, u, themes_by_id, show_text=True) -%}
+{% macro news_item(n, u, show_text=True) -%}
 <article class="news-item" data-kind="{{ n.kind }}">
 <span class="label">{{ (kinds_nl if lang == 'nl' else kinds)[n.kind] }} · {{ n.date|month(lang) }}{% if n.lang == 'nl' and lang != 'nl' %}<span class="tag" lang="en" title="In Dutch">NL</span>{% endif %}</span>
-<h3>{% if n.link %}<a href="{{ n.link }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
+<h3>{% if n.link %}<a href="{{ n.link if n.link.startswith('http') else u(n.link) }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
 {% if show_text and n.text %}<p{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.text }}</p>{% endif %}
-{% if show_text and n.theme %}<p><a href="{{ u('research/' ~ n.theme ~ '/') }}">{{ themes_by_id[n.theme].title }}</a></p>{% endif %}
+{% if show_text and n.project %}<p class="chips"><a href="{{ u('research/' ~ n.project ~ '/') }}">{{ projects_by_id[n.project].title }}</a></p>{% endif %}
 </article>
 {%- endmacro %}
 
-{% macro pub(p, u, themes_by_id) -%}
-<li class="pub" data-themes="{{ p.themes|join(' ') }}">
+{% macro pub(p, u) -%}
+<li class="pub" data-projects="{{ p.projects|join(' ') }}">
 <p class="ref">{{ p.authors|boldme }} ({{ p.year }}). {{ p.title }}. <em>{{ p.venue }}</em>{% if p.details %}, {{ p.details }}{% endif %}.</p>
 <p class="pub-links">{% if p.doi %}<a href="https://doi.org/{{ p.doi }}">doi.org/{{ p.doi }}</a>{% endif %}{% for l in p.links or [] %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
 </li>
+{%- endmacro %}
+
+
+{% macro pinned_item(n, u) -%}
+<article class="pinned" data-kind="{{ n.kind }}">
+{% if n.kind == 'book' %}<div class="mini-cover" aria-hidden="true"><span>What Is Music For?</span><small>Fleur Bouwer</small></div>{% endif %}
+<div>
+<span class="label">{{ 'Uitgelicht' if lang == 'nl' else 'Coming soon' }} · {{ (kinds_nl if lang == 'nl' else kinds)[n.kind] }}</span>
+<h3>{{ n.title }}</h3>
+<p>{{ n.text }}</p>
+<p style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-amber" href="{{ u('book/') }}">{{ 'Over het boek' if lang == 'nl' else 'About the book' }}</a>{% if n.link %}<a class="btn" style="border:1px solid #F2EFE8" href="{{ n.link }}">{{ 'Bij de uitgever' if lang == 'nl' else 'Pre-order from the publisher' }}</a>{% endif %}</p>
+</div>
+</article>
+{%- endmacro %}
+
+{% macro tile(t, u) -%}
+<article class="tile{% if t.featured %} featured{% endif %}">
+{% if t.art %}<div class="art">{{ art(t.art) }}</div>{% endif %}
+<span class="label">{{ t.kicker }}</span>
+<h3>{{ t.title }}</h3>
+<p{% if lang == 'nl' %} lang="nl"{% endif %}>{{ t.text_nl if lang == 'nl' else t.text }}</p>
+<a class="go" href="{{ u(t.link.url) if t.internal else t.link.url }}">{{ t.link.label }}</a>
+</article>
 {%- endmacro %}

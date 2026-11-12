@@ -1,12 +1,13 @@
 {% extends "base.html" %}
-{% block hero %}<section class="wrap page-hero"><h1>{{ outreach.book.title }}</h1><p class="lead">{{ outreach.book.subtitle }}</p></section>{% endblock %}
+{% set b = outreach.book %}
+{% block hero %}<section class="wrap page-hero"><span class="label" style="color:var(--amber)">New book · {{ b.date }}</span><h1>{{ b.title }}</h1><p class="lead">{{ b.series }}, {{ b.publisher }}</p></section>{% endblock %}
 {% block main %}
 <section class="section"><div class="wrap book">
-<div class="cover">{% if outreach.book.cover %}<img src="{{ u('static/img/' ~ outreach.book.cover) }}" alt="Cover of {{ outreach.book.title }}">{% else %}[Book cover]{% endif %}</div>
+{% if b.cover %}<img class="cover" src="{{ u('static/img/' ~ b.cover) }}" alt="Cover of {{ b.title }}">{% else %}<div class="cover-big" role="img" aria-label="Placeholder for the book cover"><span>{{ b.title }}</span><small>Fleur Bouwer<br>Cover image coming soon</small></div>{% endif %}
 <div class="prose" style="flex:1 1 360px">
-<p style="font-size:19px">{{ outreach.book.text }}</p>
-<p class="muted">{{ outreach.book.publisher }} · {{ outreach.book.date }}</p>
-{% if outreach.book.publisher_url %}<p><a class="btn btn-amber" href="{{ outreach.book.publisher_url }}">Order from the publisher</a></p>{% else %}<p><span class="btn btn-line" aria-disabled="true">[Link to publisher]</span></p>{% endif %}
+{% for para in b.paragraphs %}<p{% if loop.first %} style="font-size:21px"{% endif %}>{{ para }}</p>{% endfor %}
+<p class="muted" style="font-size:16px">{{ b.publisher }} · {{ b.date }} · {{ b.details }}</p>
+<p><a class="btn btn-amber" href="{{ b.publisher_url }}">Pre-order from the publisher</a></p>
 </div>
 </div></section>
 {% endblock %}

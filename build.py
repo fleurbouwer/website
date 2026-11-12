@@ -22,8 +22,8 @@ PREVIEW = "--preview" in sys.argv
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
-KINDS = {"paper": "Paper", "grant": "Grant", "media": "Media", "outreach": "Outreach", "lab": "Lab"}
-KINDS_NL = {"paper": "Artikel", "grant": "Beurs", "media": "Media", "outreach": "Publieksactiviteit", "lab": "Lab"}
+KINDS = {"book": "Book", "paper": "Paper", "grant": "Grant", "media": "Media", "outreach": "Outreach", "lab": "Lab"}
+KINDS_NL = {"book": "Boek", "paper": "Artikel", "grant": "Beurs", "media": "Media", "outreach": "Publieksactiviteit", "lab": "Lab"}
 MONTHS_NL = ["januari", "februari", "maart", "april", "mei", "juni", "juli",
              "augustus", "september", "oktober", "november", "december"]
 
@@ -60,36 +60,43 @@ def boldme(authors):
 
 
 def month(d, lang="en"):
+    """Show a date as 'March 2026'. Accepts a date, 'YYYY-MM' or 'YYYY'."""
+    names = MONTHS_NL if lang == "nl" else MONTHS
+    if isinstance(d, int) or (isinstance(d, str) and len(d) == 4):
+        return str(d)
+    if isinstance(d, str) and len(d) == 7:
+        return f"{names[int(d[5:7]) - 1]} {d[:4]}"
     if isinstance(d, str):
         d = date.fromisoformat(d)
-    names = MONTHS_NL if lang == "nl" else MONTHS
     return f"{names[d.month - 1]} {d.year}"
 
 
 def main():
     site = load("site")
-    themes = load("themes")
+    projects = load("projects")
     pubs = load("publications")
     news = sorted(load("news"), key=lambda n: str(n["date"]), reverse=True)
     team = load("team")
     outreach = load("outreach")
 
-    themes_by_id = {t["id"]: t for t in themes}
+    projects_by_id = {p["id"]: p for p in projects}
     everyone = [dict(p) for p in team["current"]] + [dict(p, alumnus=True) for p in team["alumni"]]
-    for t in themes:
-        t["pubs"] = [p for p in pubs if t["id"] in p.get("themes", [])]
-        t["news"] = [n for n in news if n.get("theme") == t["id"]]
-        t["people"] = [p for p in everyone if t["id"] in p.get("themes", [])]
-        for key in ("intro",):
-            t[key] = t[key].strip()
-        for pr in t["projects"]:
-            pr["text"] = pr["text"].strip()
+    for pr in projects:
+        pr["pubs"] = [p for p in pubs if pr["id"] in p.get("projects", [])]
+        pr["news"] = [n for n in news if n.get("project") == pr["id"]]
+        pr["people"] = [p for p in everyone if pr["id"] in p.get("projects", [])]
+        pr["paragraphs"] = [x.strip() for x in pr["text"].strip().split("\n\n")]
+
+    pinned = [n for n in news if n.get("pinned")]
+    latest = [n for n in news if not n.get("pinned")]
 
     years = sorted({p["year"] for p in pubs}, reverse=True)
     pubs_by_year = [(y, [p for p in pubs if p["year"] == y]) for y in years]
+    outreach["book"]["paragraphs"] = [x.strip() for x in outreach["book"]["text"].strip().split("\n\n")]
+    tiles = sorted(outreach["tiles"], key=lambda t: not t.get("featured"))
 
     nav = [
-        {"path": "research/", "label": "Research"},
+        {"path": "research/", "label": "Projects"},
         {"path": "publications/", "label": "Publications"},
         {"path": "team/", "label": "Team"},
         {"path": "news/", "label": "News & media"},
@@ -98,7 +105,7 @@ def main():
         {"path": "contact/", "label": "Contact"},
     ]
     nav_nl = [
-        {"path": "research/", "label": "Onderzoek"},
+        {"path": "research/", "label": "Projecten"},
         {"path": "publications/", "label": "Publicaties"},
         {"path": "team/", "label": "Team"},
         {"path": "news/", "label": "Nieuws"},
@@ -116,8 +123,9 @@ def main():
     OUT.mkdir()
     shutil.copytree(ROOT / "static", OUT / "static")
 
-    common = dict(site=site, themes=themes, themes_by_id=themes_by_id, pubs=pubs, pubs_by_year=pubs_by_year,
-                  news=news, team=team, outreach=outreach, kinds=KINDS, kinds_nl=KINDS_NL)
+    common = dict(site=site, projects=projects, projects_by_id=projects_by_id, pubs=pubs, pubs_by_year=pubs_by_year,
+                  news=news, pinned=pinned, latest=latest, team=team, outreach=outreach, tiles=tiles,
+                  kinds=KINDS, kinds_nl=KINDS_NL)
 
     def render(template, path, **ctx):
         depth = path.count("/")
@@ -141,15 +149,16 @@ def main():
         dest.write_text(html, encoding="utf-8")
 
     render("home.html", "index.html", section="", description=site["hero_text"])
-    render("research.html", "research/index.html", title="Research", section="research/")
-    for t in themes:
-        render("theme.html", f"research/{t['id']}/index.html", t=t, title=t["title"],
-               description=t["short"], section="research/")
+    render("research.html", "research/index.html", title="Projects", section="research/")
+    for pr in projects:
+        render("project.html", f"research/{pr['id']}/index.html", pr=pr, title=pr["title"],
+               description=pr["short"], section="research/")
     render("publications.html", "publications/index.html", title="Publications", section="publications/")
     render("team.html", "team/index.html", title="Team", section="team/")
     render("news.html", "news/index.html", title="News and media", section="news/")
-    render("outreach.html", "outreach/index.html", title="Outreach and teaching", section="outreach/")
-    render("book.html", "book/index.html", title="Book", section="book/")
+    render("outreach.html", "outreach/index.html", title="Outreach", section="outreach/")
+    render("book.html", "book/index.html", title="What Is Music For?", section="book/",
+           description="What Is Music For?, a popular science book by Fleur Bouwer (Bristol University Press, March 2027).")
     render("contact.html", "contact/index.html", title="Contact", section="contact/")
     render("nl.html", "nl/index.html", title="In het Nederlands", lang="nl", section="nl/",
            description="Fleur Bouwer onderzoekt muziek, ritme en het brein aan de Universiteit Leiden.")

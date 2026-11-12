@@ -1,0 +1,22 @@
+{% extends "base.html" %}{% import "macros.html" as m with context %}
+{% block hero %}<section class="wrap page-hero"><a class="label" style="color:var(--amber)" href="{{ u('research/') }}">Projects</a><h1>{{ pr.title }}</h1><p class="lead">{{ pr.short }}</p></section>{% endblock %}
+{% block main %}
+<section class="section"><div class="wrap two-col">
+<div class="main prose">{% for para in pr.paragraphs %}<p>{{ para }}</p>{% endfor %}</div>
+<div class="side" style="display:flex;flex-direction:column;gap:36px">
+<div><h3 style="margin-bottom:16px">People</h3><div class="people">
+{% for p in pr.people %}<div class="person">{{ m.avatar(p, u) }}<div><div class="name">{{ p.name }}</div><div class="role">{{ p.role }}{% if p.alumnus %}, alumnus{% endif %}</div></div></div>{% endfor %}
+</div></div>
+<div><h3 style="margin-bottom:16px">Funding</h3><ul class="funding">{% for f in pr.funding %}<li><span>{{ f.name }}</span><span class="yrs">{{ f.years }}</span></li>{% endfor %}</ul></div>
+{% if pr.collaborators %}<div><h3 style="margin-bottom:12px">Collaborators</h3><p class="muted" style="font-size:16px">{{ pr.collaborators }}</p></div>{% endif %}
+</div>
+</div></section>
+{% if pr.pubs %}<section class="section white"><div class="wrap">
+<div class="section-head"><h2>Publications</h2><a class="more" href="{{ u('publications/') }}">All publications</a></div>
+<ul class="pubs">{% for p in pr.pubs %}{{ m.pub(p, u) }}{% endfor %}</ul>
+</div></section>{% endif %}
+{% if pr.news %}<section class="section"><div class="wrap">
+<div class="section-head"><h2>News</h2></div>
+<div class="news-grid">{% for n in pr.news %}{{ m.news_item(n, u, show_text=False) }}{% endfor %}</div>
+</div></section>{% endif %}
+{% endblock %}

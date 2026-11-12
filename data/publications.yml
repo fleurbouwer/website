@@ -1,7 +1,25 @@
 # Publications, newest first within each year.
 # Fields: year, authors, title, venue, details (volume/pages), doi, links (label + url),
-# type (article | chapter | review | thesis), themes (ids from themes.yml).
+# type (article | chapter | review | book), projects (ids from projects.yml).
 # Fleur's name is set in bold automatically wherever "Bouwer, F" appears.
+
+- year: 2026
+  authors: "Boessen, D., Hendricksen, M., Johannsen, T., Verwijk, E., van der Steen, J. T., & Bouwer, F. L."
+  title: "Singing versus conversation for wellbeing in dementia: A cross-over pilot study"
+  venue: "Journal of Alzheimer’s Disease"
+  details: "13872877261485601"
+  doi: "10.1177/13872877261485601"
+  type: article
+  projects: [health]
+
+- year: 2026
+  authors: "Talamini, F., Grassi, M., Altoè, G., Brattico, E., Caclin, A., Carretti, B., Drai-Zerbib, V., Ferreri, L., Gambarota, F., Grahn, J., Guiotto Nai Fovino, L., Roccato, M., Rodriguez-Fornells, A., Swaminathan, S., Tillmann, B., Vuust, P., Wilbiks, J., Zentner, M., Aguilar, K., …, Bouwer, F. L., … Zappa, A."
+  title: "Music Ensemble: A large dataset on musicianship, cognition, and personality in musicians and nonmusicians"
+  venue: "Scientific Data"
+  details: "13(1), 473"
+  doi: "10.1038/s41597-026-06654-0"
+  type: article
+  projects: [learning]
 
 - year: 2026
   authors: "Bouwer, F. L., Damsma, A., Kaplan, T. M., Sarvestani, M. G., & Pearce, M. T."
@@ -12,7 +30,16 @@
   links:
     - {label: "Data and code", url: "https://osf.io/kzg2e/overview?view_only=34af7d2af4854bffbaa247d8513bb14b"}
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
+
+- year: 2025
+  authors: "Damsma, A., Cannon, J., Fink, L. K., Doelling, K. B., Grahn, J. A., Honing, H., Kaplan, T., Large, E. W., & Bouwer, F. L."
+  title: "Computational modeling of rhythmic expectations: Perspectives, pitfalls, and prospects"
+  venue: "PLOS Computational Biology"
+  details: "21(12), e1013798"
+  doi: "10.1371/journal.pcbi.1013798"
+  type: review
+  projects: [rhythm]
 
 - year: 2025
   authors: "Grassi, M., Talamini, F., Altoè, G., Brattico, E., Caclin, A., Carretti, B., Drai-Zerbib, V., Ferreri, L., Gambarota, F., Grahn, J., Guiotto Nai Fovino, L., Roccato, M., Rodriguez-Fornells, A., Swaminathan, S., Tillmann, B., Vuust, P., Wilbiks, J., Zentner, M., Aguilar, K., …, Bouwer, F. L., … Zappa, A."
@@ -21,7 +48,7 @@
   details: "8(4), 25152459251379432"
   doi: "10.1177/25152459251379432"
   type: article
-  themes: [learning]
+  projects: [learning]
 
 - year: 2025
   authors: "Damsma, A., De Roo, M., Doelling, K., Bazin, P.-L., & Bouwer, F. L."
@@ -32,7 +59,7 @@
   links:
     - {label: "Data and code", url: "https://osf.io/ghp94/overview"}
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2024
   authors: "Bouwer, F. L., Háden, G. P., & Honing, H."
@@ -43,7 +70,7 @@
   links:
     - {label: "Open-access preprint", url: "https://doi.org/10.31234/osf.io/azk9q"}
   type: chapter
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2024
   authors: "Háden, G. P., Bouwer, F. L., Honing, H., & Winkler, I."
@@ -52,7 +79,7 @@
   details: "243, 105670"
   doi: "10.1016/j.cognition.2023.105670"
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2023
   authors: "Fiveash, A., Ferreri, L., Bouwer, F. L., Kösem, A., Moghimi, S., Ravignani, A., Keller, P. E., & Tillmann, B."
@@ -61,7 +88,7 @@
   details: "149, 105153"
   doi: "10.1016/j.neubiorev.2023.105153"
   type: review
-  themes: [connection, learning]
+  projects: [connection, learning]
 
 - year: 2023
   authors: "Bouwer, F. L., Fahrenfort, J. J., Millard, S. K., Kloosterman, N. A., & Slagter, H. A."
@@ -70,10 +97,10 @@
   details: "35, 990–1020"
   doi: "10.1162/jocn_a_01985"
   links:
-    - {label: "Open-access preprint", url: "https://www.biorxiv.org/content/10.1101/2020.01.08.899278v8.abstract"}
+    - {label: "Open-access preprint", url: "https://doi.org/10.1101/2020.01.08.899278"}
     - {label: "Data and code", url: "https://osf.io/uwny8/"}
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2022
   authors: "Bouwer, F. L."
@@ -82,9 +109,9 @@
   details: "42(11), 2146–2148"
   doi: "10.1523/JNEUROSCI.2305-21.2022"
   links:
-    - {label: "Open-access preprint", url: "https://psyarxiv.com/p9uza/"}
+    - {label: "Open-access preprint", url: "https://doi.org/10.31234/osf.io/p9uza"}
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2021
   authors: "Slagter, H. A., & Bouwer, F. L."
@@ -93,7 +120,7 @@
   details: "4(1), 49"
   doi: "10.5334/joc.170"
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2021
   authors: "Bouwer, F. L., Nityananda, V., Rouse, A. A., & ten Cate, C."
@@ -101,8 +128,10 @@
   venue: "Philosophical Transactions of the Royal Society B"
   details: "376, 20200335"
   doi: "10.1098/rstb.2020.0335"
+  links:
+    - {label: "Open-access preprint", url: "https://doi.org/10.31234/osf.io/pu9yh"}
   type: review
-  themes: [rhythm]
+  projects: [rhythm, connection]
 
 - year: 2020
   authors: "Bouwer, F. L., Honing, H., & Slagter, H. A."
@@ -111,9 +140,10 @@
   details: "32, 1221–1241"
   doi: "10.1162/jocn_a_01529"
   links:
+    - {label: "Open-access preprint", url: "https://doi.org/10.1101/613398"}
     - {label: "Data and code", url: "https://osf.io/vfhqr/overview"}
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2019
   authors: "Honing, H., & Bouwer, F. L."
@@ -121,7 +151,7 @@
   venue: "Foundations in Music Psychology: Theory and Research (P. J. Rentfrow & D. Levitin, Eds.)"
   details: "pp. 33–69. MIT Press"
   type: chapter
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2018
   authors: "Honing, H., Bouwer, F. L., Prado, L., & Merchant, H."
@@ -130,7 +160,7 @@
   details: "12, 475"
   doi: "10.3389/fnins.2018.00475"
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2018
   authors: "Bouwer, F. L., Burgoyne, J. A., Odijk, D., Honing, H., & Grahn, J. A."
@@ -139,7 +169,7 @@
   details: "13(1), e0190322"
   doi: "10.1371/journal.pone.0190322"
   type: article
-  themes: [rhythm, learning]
+  projects: [rhythm, learning]
 
 - year: 2018
   authors: "Roncaglia-Denissen, M. P., Bouwer, F. L., & Honing, H."
@@ -148,7 +178,7 @@
   details: "9"
   doi: "10.3389/fpsyg.2018.00038"
   type: article
-  themes: [learning]
+  projects: [learning]
 
 - year: 2016
   authors: "Bouwer, F. L., Werner, C. M., Knetemann, M., & Honing, H."
@@ -157,16 +187,7 @@
   details: "85, 80–90"
   doi: "10.1016/j.neuropsychologia.2016.02.018"
   type: article
-  themes: [rhythm]
-
-- year: 2016
-  authors: "Bouwer, F. L."
-  title: "What do we need to hear a beat? The influence of attention, musical abilities, and accents on the perception of metrical rhythm"
-  venue: "Doctoral dissertation, University of Amsterdam"
-  links:
-    - {label: "Full dissertation (PDF)", url: "https://fleurbouwer.nl/wp-content/uploads/2016/05/FleurBouwer_Dissertation_Complete.pdf"}
-  type: thesis
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2015
   authors: "Bouwer, F. L., & Honing, H."
@@ -175,7 +196,7 @@
   details: "6, 1094"
   doi: "10.3389/fpsyg.2015.01094"
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2014
   authors: "Bouwer, F. L., Van Zuijen, T. L., & Honing, H."
@@ -184,7 +205,7 @@
   details: "9(5), e97467"
   doi: "10.1371/journal.pone.0097467"
   type: article
-  themes: [rhythm]
+  projects: [rhythm]
 
 - year: 2014
   authors: "Honing, H., Bouwer, F. L., & Háden, G. P."
@@ -193,4 +214,4 @@
   details: "Vol. 829, pp. 305–323. Springer"
   doi: "10.1007/978-1-4939-1782-2_16"
   type: chapter
-  themes: [rhythm]
+  projects: [rhythm]
