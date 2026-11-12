@@ -19,7 +19,7 @@
 </div></section>
 <section class="section white"><div class="wrap two-col">
 <div class="main"><div class="section-head"><h2>In de media</h2></div>
-<div class="news">{% for n in news if n.lang == 'nl' %}{{ m.news_item(n, u) }}{% endfor %}</div></div>
+<div class="news">{% for n in media if n.lang == 'nl' %}{{ m.news_item(n, u) }}{% endfor %}</div></div>
 <div class="side prose"><h2>Lezingen</h2><p>{{ outreach.lectures_nl }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
 </div></section>
 <section class="section"><div class="wrap"><div class="section-head"><h2>Voor iedereen</h2></div>

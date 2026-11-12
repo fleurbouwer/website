@@ -37,6 +37,11 @@
 <p class="ai-note"{% if lang == 'nl' %} lang="nl"{% endif %}>{{ site.ai_note_nl if lang == 'nl' else site.ai_note }}</p>
 </div>
 </footer>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest('a[data-yt]');if(!a)return;e.preventDefault();
+var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1';f.title=a.getAttribute('aria-label');
+f.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.className='yt';a.replaceWith(f);f.focus();});
+</script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

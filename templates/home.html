@@ -18,7 +18,7 @@
 {% block main %}
 <section class="section white">
 <div class="wrap">
-<div class="section-head"><h2>Latest news</h2><a class="more" href="{{ u('news/') }}">All news and media</a></div>
+<div class="section-head"><h2>Latest news</h2><a class="more" href="{{ u('news/') }}">All news</a></div>
 {% for n in pinned %}{{ m.pinned_item(n, u) }}{% endfor %}
 <div class="news-grid">{% for n in latest[:3] %}{{ m.news_item(n, u, show_text=False) }}{% endfor %}</div>
 </div>

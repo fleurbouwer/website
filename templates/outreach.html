@@ -1,10 +1,23 @@
 {% extends "base.html" %}{% import "macros.html" as m with context %}
-{% block hero %}<section class="wrap page-hero"><h1>Outreach</h1><p class="lead">Games, videos, a book, a festival and the occasional lecture: music science for everyone.</p></section>{% endblock %}
+{% block hero %}<section class="wrap page-hero"><h1>Outreach</h1><p class="lead">Games, videos, radio, a book and the occasional festival: music science for everyone. Items marked NL are in Dutch.</p>
+<p style="display:flex;flex-wrap:wrap;gap:12px">{% for t in tiles if t.featured %}<a class="btn {{ 'btn-amber' if loop.first else 'btn-dark-line' }}" href="{{ t.link.url }}">{{ t.link.label }}</a>{% endfor %}</p></section>{% endblock %}
 {% block main %}
-<section class="section"><div class="wrap"><div class="tiles">
-{% for t in tiles %}{{ m.tile(t, u) }}{% endfor %}
-</div></div></section>
-<section class="section white"><div class="wrap"><div class="prose">
-<h2>Lectures</h2><p>{{ outreach.lectures }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-</div></div></section>
+<section class="section white" id="media" style="padding-top:56px"><div class="wrap">
+<div class="section-head"><h2>Watch and listen</h2></div>
+<div class="mtiles">{% for n in watch %}{{ m.media_tile(n, u) }}{% endfor %}</div>
+<p class="muted small-note">Videos play from YouTube once you click them; nothing loads from YouTube before that.</p>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="section-head"><h2>Games and the book</h2></div>
+<div class="tiles">{% for t in tiles %}{{ m.tile(t, u) }}{% endfor %}</div>
+</div></section>
+<section class="section white"><div class="wrap">
+<div class="section-head"><h2>In print and online</h2></div>
+<div class="mtiles">{% for n in press %}{{ m.media_tile(n, u) }}{% endfor %}</div>
+</div></section>
+<section class="section"><div class="wrap two-col">
+<div class="main"><div class="section-head"><h2>Talks and events</h2></div>
+<div class="mtiles">{% for n in events %}{{ m.media_tile(n, u) }}{% endfor %}</div></div>
+<div class="side prose"><h2>Lectures</h2><p>{{ outreach.lectures }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
+</div></section>
 {% endblock %}

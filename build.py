@@ -23,16 +23,17 @@ PREVIEW = "--preview" in sys.argv
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 KINDS = {"book": "Book", "paper": "Paper", "grant": "Grant", "media": "Media", "outreach": "Outreach", "talk": "Talk", "lab": "Lab", "music": "Music"}
+OUTREACH_KINDS = {"media", "outreach"}  # shown on the Outreach page, not the News page
+MEDIUMS = {"video": "Video", "audio": "Radio and podcasts", "print": "Print and online", "event": "Event"}
 KINDS_NL = {"talk": "Lezing", "music": "Muziek", "book": "Boek", "paper": "Artikel", "grant": "Beurs", "media": "Media", "outreach": "Publieksactiviteit", "lab": "Lab"}
 MONTHS_NL = ["januari", "februari", "maart", "april", "mei", "juni", "juli",
              "augustus", "september", "oktober", "november", "december"]
 
-# Old WordPress addresses that should keep working.
 # Old WordPress addresses that should keep working (old news posts are added automatically).
 REDIRECTS = {
     "about-fleur/": "team/",
     "latest/": "news/",
-    "media/": "news/#media",
+    "media/": "outreach/#media",
     "publications/": None,  # same address on the new site
 }
 
@@ -66,7 +67,8 @@ def summary(text, limit=240):
     if not text or len(text) <= limit:
         return text
     cut = text[:limit]
-    end = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
+    ends = [m.end() - 1 for m in re.finditer(r"(?<!\bProf)(?<!\bDr)(?<!\be\.g)(?<!\bi\.e)[.!?] ", cut)]
+    end = ends[-1] if ends else -1
     if end > 80:
         return cut[:end + 1]
     return cut[:cut.rfind(" ")] + "…"
@@ -84,17 +86,26 @@ def main():
     everyone = [dict(p) for p in team["current"]] + [dict(p, alumnus=True) for p in team["alumni"]]
     for pr in projects:
         pr["pubs"] = [p for p in pubs if pr["id"] in p.get("projects", [])]
-        pr["news"] = [n for n in news if n.get("project") == pr["id"]]
+        pr["news"] = [n for n in news if n.get("project") == pr["id"] and n["kind"] not in OUTREACH_KINDS]
         pr["people"] = [p for p in everyone if pr["id"] in p.get("projects", [])]
         pr["paragraphs"] = [x.strip() for x in pr["text"].strip().split("\n\n")]
 
     for n in news:
+        n["dir"] = "outreach/" if n["kind"] in OUTREACH_KINDS else "news/"
         if n.get("body"):
             n["paragraphs"] = [x.strip() for x in n["body"].strip().split("\n\n")]
         if n.get("slug"):
-            REDIRECTS[n["slug"] + "/"] = "news/" + n["slug"] + "/"
+            REDIRECTS[n["slug"] + "/"] = n["dir"] + n["slug"] + "/"
         elif n.get("old_slug"):
-            REDIRECTS[n["old_slug"] + "/"] = "news/"
+            REDIRECTS[n["old_slug"] + "/"] = n["dir"]
+    media = [n for n in news if n["kind"] in OUTREACH_KINDS]
+    # playable clips (YouTube or an audio file on this site) first, then the rest; newest first within each
+    watch = [n for n in media if n.get("medium") in ("video", "audio")]
+    watch = [n for n in watch if n.get("youtube") or n.get("audio")] + [n for n in watch if not (n.get("youtube") or n.get("audio"))]
+    press = [n for n in media if n.get("medium") == "print"]
+    events = [n for n in media if n.get("medium") == "event"]
+    news = [n for n in news if n["kind"] not in OUTREACH_KINDS]
+    news_kinds = {k: v for k, v in KINDS.items() if k not in OUTREACH_KINDS and any(n["kind"] == k for n in news)}
     pinned = [n for n in news if n.get("pinned")]
     news_by_year = []
     for n in [n for n in news if not n.get("pinned")]:
@@ -113,7 +124,7 @@ def main():
         {"path": "research/", "label": "Projects"},
         {"path": "publications/", "label": "Publications"},
         {"path": "team/", "label": "Team"},
-        {"path": "news/", "label": "News & media"},
+        {"path": "news/", "label": "News"},
         {"path": "outreach/", "label": "Outreach"},
         {"path": "book/", "label": "Book"},
         {"path": "contact/", "label": "Contact"},
@@ -123,6 +134,7 @@ def main():
         {"path": "publications/", "label": "Publicaties"},
         {"path": "team/", "label": "Team"},
         {"path": "news/", "label": "Nieuws"},
+        {"path": "outreach/", "label": "Voor publiek"},
         {"path": "book/", "label": "Boek"},
         {"path": "contact/", "label": "Contact"},
     ]
@@ -140,6 +152,7 @@ def main():
 
     common = dict(site=site, projects=projects, projects_by_id=projects_by_id, pubs=pubs, pubs_by_year=pubs_by_year,
                   news=news, pinned=pinned, latest=latest, news_by_year=news_by_year, team=team, outreach=outreach, tiles=tiles,
+                  media=media, watch=watch, press=press, events=events, news_kinds=news_kinds, mediums=MEDIUMS,
                   kinds=KINDS, kinds_nl=KINDS_NL)
 
     def render(template, path, **ctx):
@@ -170,11 +183,11 @@ def main():
                description=pr["short"], section="research/")
     render("publications.html", "publications/index.html", title="Publications", section="publications/")
     render("team.html", "team/index.html", title="Team", section="team/")
-    render("news.html", "news/index.html", title="News and media", section="news/")
-    for n in news:
+    render("news.html", "news/index.html", title="News", section="news/")
+    for n in news + media:
         if n.get("slug"):
-            render("article.html", f"news/{n['slug']}/index.html", n=n, title=n["title"],
-                   description=n.get("text") or n["title"], section="news/", lang_item=n.get("lang"))
+            render("article.html", f"{n['dir']}{n['slug']}/index.html", n=n, title=n["title"],
+                   description=n.get("text") or n["title"], section=n["dir"], lang_item=n.get("lang"))
     render("outreach.html", "outreach/index.html", title="Outreach", section="outreach/")
     render("book.html", "book/index.html", title="What Is Music For?", section="book/",
            description="What Is Music For?, a popular science book by Fleur Bouwer (Bristol University Press, March 2027).")

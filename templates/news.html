@@ -1,10 +1,10 @@
 {% extends "base.html" %}{% import "macros.html" as m with context %}
-{% block hero %}<section class="wrap page-hero"><h1>News and media</h1><p class="lead">Papers, grants, media appearances and outreach. Items marked NL are in Dutch.</p></section>{% endblock %}
+{% block hero %}<section class="wrap page-hero"><h1>News</h1><p class="lead">New papers, grants, talks and lab news. Media appearances and outreach are on the <a href="{{ u('outreach/') }}" style="color:inherit">Outreach</a> page.</p></section>{% endblock %}
 {% block main %}
 <section class="section"><div class="wrap" style="max-width:900px">
 <div class="filters" role="group" aria-label="Filter news" hidden>
 <button type="button" data-filter="all" aria-pressed="true">All</button>
-{% for k, label in kinds.items() %}<button type="button" data-filter="{{ k }}" aria-pressed="false" id="{{ k }}">{{ label }}</button>{% endfor %}
+{% for k, label in news_kinds.items() %}<button type="button" data-filter="{{ k }}" aria-pressed="false" id="{{ k }}">{{ label }}</button>{% endfor %}
 </div>
 {% for n in pinned %}{{ m.pinned_item(n, u) }}{% endfor %}
 {% for year, items in news_by_year %}<h2 class="year news-year">{{ year }}</h2><div class="news">{% for n in items %}{{ m.news_item(n, u) }}{% endfor %}</div>{% endfor %}

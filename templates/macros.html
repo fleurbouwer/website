@@ -26,7 +26,7 @@
 {% macro news_item(n, u, show_text=True) -%}
 <article class="news-item" data-kind="{{ n.kind }}">
 <span class="label">{{ (kinds_nl if lang == 'nl' else kinds)[n.kind] }} · {{ n.date|month(lang) }}{% if n.lang == 'nl' and lang != 'nl' %}<span class="tag" lang="en" title="In Dutch">NL</span>{% endif %}</span>
-{% set href = u('news/' ~ n.slug ~ '/') if n.slug else (n.link if n.link and n.link.startswith('http') else (u(n.link) if n.link else '')) %}
+{% set href = u(n.dir ~ n.slug ~ '/') if n.slug else (n.link if n.link and n.link.startswith('http') else (u(n.link) if n.link else '')) %}
 <h3{% if n.lang == 'nl' %} lang="nl"{% endif %}>{% if href %}<a href="{{ href }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
 {% if show_text and n.text %}<p{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.text|summary }}{% if n.slug %} <a href="{{ href }}" aria-label="Read more: {{ n.title }}">{{ 'Lees meer' if n.lang == 'nl' else 'Read more' }}</a>{% endif %}</p>{% elif show_text and n.slug %}<p><a href="{{ href }}">{{ 'Lees meer' if n.lang == 'nl' else 'Read more' }}</a></p>{% endif %}
 {% if show_text and (n.project or (n.slug and n.link)) %}<p class="chips">{% if n.project %}<a href="{{ u('research/' ~ n.project ~ '/') }}">{{ projects_by_id[n.project].title }}</a>{% endif %}{% if n.slug and n.link %}<a href="{{ n.link }}">{{ n.link_label or 'Link' }}</a>{% endif %}</p>{% endif %}
@@ -55,10 +55,27 @@
 
 {% macro tile(t, u) -%}
 <article class="tile{% if t.featured %} featured{% endif %}">
-{% if t.art %}<div class="art">{{ art(t.art) }}</div>{% endif %}
+{% if t.image %}<div class="art art-img"><img src="{{ u('static/img/' ~ t.image) }}" alt="" loading="lazy"></div>{% elif t.art %}<div class="art">{{ art(t.art) }}</div>{% endif %}
 <span class="label">{{ t.kicker }}</span>
 <h3>{{ t.title }}</h3>
 <p{% if lang == 'nl' %} lang="nl"{% endif %}>{{ t.text_nl if lang == 'nl' else t.text }}</p>
 <a class="go" href="{{ u(t.link.url) if t.internal else t.link.url }}">{{ t.link.label }}</a>
+</article>
+{%- endmacro %}
+
+{% macro media_tile(n, u) -%}
+{% set page = u(n.dir ~ n.slug ~ '/') if n.slug else '' %}
+{% set ext = ('https://www.youtube.com/watch?v=' ~ n.youtube) if n.youtube else (n.link if n.link and n.link.startswith('http') else '') %}
+<article class="mtile m-{{ n.medium }}"{% if n.lang == 'nl' %} lang="nl"{% endif %}>
+{% set poster %}{% if n.thumb %}<img src="{{ u('static/news/' ~ n.thumb) }}" alt="" loading="lazy">{% else %}<span class="outlet">{{ n.outlet }}</span>{% endif %}{% if n.medium == 'video' %}<span class="play-btn" aria-hidden="true"></span>{% elif n.medium == 'audio' %}<svg class="wave" viewBox="0 0 200 40" aria-hidden="true">{% for i in range(25) %}<rect x="{{ i * 8 }}" y="{{ 20 - [4,10,16,8,18,12,6,14,18,10,4,12,16][i % 13] }}" width="4" height="{{ 2 * [4,10,16,8,18,12,6,14,18,10,4,12,16][i % 13] }}" rx="2"/>{% endfor %}</svg>{% endif %}{% endset %}
+{% if n.youtube %}<a class="poster" href="{{ ext }}" data-yt="{{ n.youtube }}" aria-label="Play video: {{ n.title }}">{{ poster }}</a>
+{% elif ext or page %}<a class="poster" href="{{ page or ext }}" tabindex="-1" aria-hidden="true">{{ poster }}</a>
+{% else %}<div class="poster">{{ poster }}</div>{% endif %}
+<div class="mtile-body">
+<span class="label">{{ {'video': 'Video', 'audio': 'Radio', 'print': 'Article', 'event': 'Event'}[n.medium] }} · {{ n.date|month(lang) }}{% if n.lang == 'nl' and lang != 'nl' %}<span class="tag" lang="en" title="In Dutch">NL</span>{% endif %}</span>
+<h3>{% if page or ext %}<a href="{{ page or ext }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
+{% if n.text %}<p>{{ n.text|summary(160) }}</p>{% endif %}
+{% if n.audio %}<audio controls preload="none" src="{{ u('static/news/' ~ n.audio) }}"></audio>{% endif %}
+</div>
 </article>
 {%- endmacro %}

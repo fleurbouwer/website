@@ -1,12 +1,15 @@
 {% extends "base.html" %}{% import "macros.html" as m with context %}
-{% block hero %}<section class="wrap page-hero"><a class="label" style="color:var(--amber)" href="{{ u('news/') }}">News · {{ kinds[n.kind] }} · {{ n.date|month }}</a><h1 style="font-size:clamp(36px,5vw,60px)"{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.title }}</h1></section>{% endblock %}
+{% block hero %}<section class="wrap page-hero"><a class="label" style="color:var(--amber)" href="{{ u(n.dir) }}">{{ 'Outreach · ' ~ n.outlet if n.dir == 'outreach/' else 'News · ' ~ kinds[n.kind] }} · {{ n.date|month }}</a><h1 style="font-size:clamp(36px,5vw,60px)"{% if n.lang == 'nl' %} lang="nl"{% endif %}>{{ n.title }}</h1></section>{% endblock %}
 {% block main %}
 <section class="section"><div class="wrap"><article class="prose"{% if n.lang == 'nl' %} lang="nl"{% endif %}>
 {% if n.image %}<img src="{{ u('static/news/' ~ n.image) }}" alt="" style="border-radius:16px;max-height:520px;width:auto">{% endif %}
 {% for para in n.paragraphs %}<p>{{ para }}</p>{% endfor %}
+{% if n.youtube %}<div class="mtile m-video"><a class="poster" href="https://www.youtube.com/watch?v={{ n.youtube }}" data-yt="{{ n.youtube }}" aria-label="Play video: {{ n.title }}"><span class="outlet">{{ n.outlet }}</span><span class="play-btn" aria-hidden="true"></span></a></div><p class="muted small-note" style="margin-top:0">The video plays from YouTube once you click it.</p>{% endif %}
+{% if n.sounds %}<h2 style="font-size:28px;margin-top:12px">{{ 'Sound examples' if n.sounds|length > 1 else 'Sound example' }}</h2>
+<ul class="sounds">{% for snd in n.sounds %}<li><span>{{ snd.label }}</span><audio controls preload="none" src="{{ u('static/news/' ~ snd.file) }}"></audio></li>{% endfor %}</ul>{% endif %}
 {% if n.audio %}<audio controls preload="none" src="{{ u('static/news/' ~ n.audio) }}" style="width:100%"></audio>{% endif %}
 <p style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">{% if n.link %}<a class="btn btn-amber" href="{{ n.link }}">{{ n.link_label or 'Read more' }}</a>{% endif %}{% for l in n.more_links or [] %}<a class="btn btn-line" href="{{ l.url if l.url.startswith('http') else u(l.url) }}">{{ l.label }}</a>{% endfor %}</p>
 {% if n.project %}<p class="chips"><a href="{{ u('research/' ~ n.project ~ '/') }}">{{ projects_by_id[n.project].title }}</a></p>{% endif %}
-<p><a class="more" href="{{ u('news/') }}">All news and media</a></p>
+<p><a class="more" href="{{ u(n.dir) }}">{{ 'All outreach and media' if n.dir == 'outreach/' else 'All news' }}</a></p>
 </article></div></section>
 {% endblock %}
